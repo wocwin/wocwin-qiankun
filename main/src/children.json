@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "code": 200,
+  "msg": "成功",
+  "data": {
+    "appId": 1,
+    "appName": "门户主应用",
+    "appGroup": "门户",
+    "appCode": "MICROSERVICE-s53tbj5h",
+    "appType": "M",
+    "packageName": "wocwin-qiankun-main",
+    "entry": "http://localhost:8100",
+    "activeRule": "/app-main",
+    "orderNum": 0,
+    "clientType": "B",
+    "children": [
+      {
+        "appId": 29,
+        "appName": "常规vue2模板",
+        "appGroup": "未分组",
+        "appCode": "MICROSERVICE-fazd1mvw",
+        "appType": "C",
+        "packageName": "portal-fe",
+        "entry": "http://localhost:9100",
+        "entryInternet": "",
+        "activeRule": "/app-vue2",
+        "orderNum": 999,
+        "clientType": "B",
+        "children": null
+      },
+      {
+        "appId": 40,
+        "appName": "vue3vite模板",
+        "appGroup": "未分组",
+        "appCode": "MICROSERVICE-4mlin42o",
+        "appType": "C",
+        "packageName": "vue3-vite-fe",
+        "entry": "http://localhost:3300",
+        "entryInternet": "",
+        "activeRule": "/app-vue3vite",
+        "orderNum": 0,
+        "clientType": "B",
+        "children": null
+      }
+    ]
+  }
+}

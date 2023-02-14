@@ -1,0 +1,121 @@
+{
+  "name": "wocwin-qiankun-main",
+  "version": "1.0.0",
+  "description": "wocwin主项目",
+  "author": "wocwin",
+  "scripts": {
+    "serve": "vue-cli-service serve --open --mode dev",
+    "prod": "vue-cli-service build --mode prod"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wocwin/wocwin-qiankun-main.git"
+  },
+  "homepage": "https://wocwin.github.io/t-ui/",
+  "keywords": [
+    "vue",
+    "vue3",
+    "vite",
+    "webpack",
+    "t-ui",
+    "qiankun",
+    "element-ui",
+    "vitepress",
+    "ts",
+    "es6",
+    "element-plus",
+    "ant-design-vue"
+  ],
+  "dependencies": {
+    "@riophae/vue-treeselect": "0.4.0",
+    "@wocwin/t-ui": "^1.0.7",
+    "axios": "0.18.1",
+    "bpmn-js": "^7.5.0",
+    "bpmn-js-properties-panel": "^0.38.1",
+    "clipboard": "2.0.4",
+    "echarts": "4.2.1",
+    "echarts-liquidfill": "^2.0.6",
+    "element-ui": "2.15.6",
+    "file-saver": "^2.0.5",
+    "form-gen-parser": "^1.0.3",
+    "fuse.js": "3.4.4",
+    "js-beautify": "^1.10.2",
+    "js-cookie": "2.2.0",
+    "jsencrypt": "3.0.0-rc.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "normalize.css": "7.0.0",
+    "nprogress": "0.2.0",
+    "path-to-regexp": "2.4.0",
+    "print-js": "^1.4.0",
+    "qiankun": "^2.6.3",
+    "screenfull": "4.2.0",
+    "stompjs": "^2.3.3",
+    "vue": "2.6.10",
+    "vue-clipboard2": "^0.3.1",
+    "vue-count-to": "1.0.13",
+    "vue-cropper": "0.4.9",
+    "vue-print-nb": "^1.5.0",
+    "vue-quill-editor": "3.0.6",
+    "vue-router": "3.0.2",
+    "vue-splitpane": "1.0.4",
+    "vuedraggable": "2.20.0",
+    "vuex": "3.1.0",
+    "xlsx": "^0.15.6"
+  },
+  "devDependencies": {
+    "@babel/core": "7.0.0",
+    "@babel/parser": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@babel/register": "7.0.0",
+    "@vue/cli-plugin-babel": "3.5.3",
+    "@vue/cli-plugin-eslint": "^3.9.1",
+    "@vue/cli-plugin-unit-jest": "3.5.3",
+    "@vue/cli-service": "3.5.3",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "autoprefixer": "^9.5.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "10.0.1",
+    "babel-jest": "23.6.0",
+    "chalk": "2.4.2",
+    "chokidar": "2.1.5",
+    "compression-webpack-plugin": "^5.0.1",
+    "connect": "3.6.6",
+    "eslint": "5.15.3",
+    "eslint-plugin-vue": "5.2.2",
+    "html-webpack-plugin": "3.2.0",
+    "http-proxy-middleware": "^0.19.1",
+    "husky": "1.3.1",
+    "lint-staged": "8.1.5",
+    "mockjs": "1.0.1-beta3",
+    "plop": "2.3.0",
+    "runjs": "^4.3.2",
+    "sass": "1.26.5",
+    "sass-loader": "8.0.2",
+    "script-ext-html-webpack-plugin": "2.1.3",
+    "script-loader": "^0.7.2",
+    "serve-static": "^1.13.2",
+    "svg-sprite-loader": "4.1.3",
+    "svgo": "1.2.0",
+    "vue-template-compiler": "2.6.10"
+  },
+  "engines": {
+    "node": ">=8.9",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
