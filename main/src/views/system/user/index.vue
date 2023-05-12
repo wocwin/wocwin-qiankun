@@ -4,11 +4,24 @@
       <!--部门数据-->
       <el-col :span="4" :xs="24">
         <div class="head-container">
-          <el-input v-model="deptName" placeholder="请输入部门名称" clearable size="small" prefix-icon="el-icon-search" />
+          <el-input
+            v-model="deptName"
+            placeholder="请输入部门名称"
+            clearable
+            size="small"
+            prefix-icon="el-icon-search"
+          />
         </div>
         <div class="head-container-tree">
-          <el-tree :data="deptOptions" :props="{children: 'children',label: 'label'}" :expand-on-click-node="false"
-            :filter-node-method="filterNode" ref="tree" default-expand-all @node-click="handleNodeClick" />
+          <el-tree
+            ref="tree"
+            :data="deptOptions"
+            :props="{children: 'children',label: 'label'}"
+            :expand-on-click-node="false"
+            :filter-node-method="filterNode"
+            default-expand-all
+            @node-click="handleNodeClick"
+          />
         </div>
       </el-col>
       <!--用户数据-->
@@ -17,25 +30,45 @@
           <t-query-condition :opts="opts" :loading="loading" @submit="conditionEnter" />
         </div>
         <div class="block_wrap">
-          <t-table title="用户管理列表" :table="table" isCopy :columns="table.columns" @selection-change="selectionChange"
-            @size-change="handlesSizeChange" @page-change="handlesCurrentChange">
+          <t-table
+            title="用户管理列表"
+            :table="table"
+            is-copy
+            :columns="table.columns"
+            @selection-change="selectionChange"
+            @size-change="handlesSizeChange"
+            @page-change="handlesCurrentChange"
+          >
             <!-- 状态插槽 -->
             <template #status="{param}">
-              <el-switch v-model="param.row.status" :active-value="true" :inactive-value="false"
-                @change="handleStatusChange(param.row)"></el-switch>
+              <el-switch
+                v-model="param.row.status"
+                :active-value="true"
+                :inactive-value="false"
+                @change="handleStatusChange(param.row)"
+              />
             </template>
             <!-- 表格外按钮toolbar插槽 -->
             <template #toolbar>
-              <el-button type="primary" size="mini" @click="handleAdd" v-hasPermi="'root:web:sys:user:add'">新增
-              </el-button>
-              <el-button type="danger" size="mini" :disabled="userIds.length < 1" @click="delHandle"
-                v-hasPermi="'root:web:sys:user:del'">批量删除</el-button>
+              <el-button
+                v-hasPermi="'root:web:sys:user:add'"
+                type="primary"
+                size="mini"
+                @click="handleAdd"
+              >新增</el-button>
+              <el-button
+                v-hasPermi="'root:web:sys:user:del'"
+                type="danger"
+                size="mini"
+                :disabled="userIds.length < 1"
+                @click="delHandle"
+              >批量删除</el-button>
             </template>
           </t-table>
         </div>
       </el-col>
     </el-row>
-    <add-form ref="addForm" :deptOptions="deptOptions" :postData="postData" @submit="submit" />
+    <add-form ref="addForm" :dept-options="deptOptions" :post-data="postData" @submit="submit" />
     <reset-password ref="resetUserForm" @pwdsubmit="submit" />
   </div>
 </template>
@@ -47,7 +80,7 @@ import ResetPassword from './ResetPassword.vue'
 export default {
   name: 'User',
   components: { ResetPassword, AddForm },
-  data () {
+  data() {
     return {
       deptName: '', // 部门筛选
       deptOptions: [], // 左侧数据
@@ -63,7 +96,7 @@ export default {
         nickName: undefined, // 用户状态
         postName: null, // 岗位
         systemId: null, // 系统
-        deptId: null, // 左侧部门
+        deptId: null // 左侧部门
       },
       userIds: [], // 复选框
       table: {
@@ -132,7 +165,7 @@ export default {
             }
           },
           { prop: 'createTime', label: '创建时间', minWidth: 140 },
-          { prop: 'status', label: '状态', slotName: 'status' },
+          { prop: 'status', label: '状态', slotName: 'status' }
         ],
         // 表格内操作列
         operator: [
@@ -151,7 +184,7 @@ export default {
             text: '重置密码',
             fun: this.resetHandle,
             hasPermi: 'root:web:sys:user:resetpass'
-          },
+          }
         ],
         // 操作列样式
         operatorConfig: {
@@ -159,11 +192,11 @@ export default {
           width: 140,
           label: '操作'
         }
-      },
+      }
     }
   },
   computed: {
-    opts () {
+    opts() {
       return {
         userName: {
           label: '登录名称',
@@ -231,10 +264,10 @@ export default {
             })
             return acc
           }, [])
-        },
+        }
       }
     },
-    getQueryData () {
+    getQueryData() {
       const { userName, phonenumber, status, postName, deptId, systemId, nickName } = this.queryData
       return {
         userName,
@@ -249,18 +282,18 @@ export default {
   },
   watch: {
     // 根据名称筛选部门树
-    deptName (val) {
+    deptName(val) {
       this.$refs.tree.filter(val)
     }
   },
-  created () {
+  created() {
     this.getRoleData()
     this.getSystemDrawDown()
     this.getDeptTreeSelectData()
   },
   methods: {
     /** 查询用户列表 */
-    async getList () {
+    async getList() {
       // this.loading = true
       // const params = {
       //   ...this.getQueryData,
@@ -275,14 +308,14 @@ export default {
       // this.loading = false
     },
     // 获取系统数据
-    async getSystemDrawDown () {
+    async getSystemDrawDown() {
       // const res = await Api.systemDrawDown()
       // if (res.code === 200) {
       //   this.systemList = res.data
       // }
     },
     // 获取岗位角色数据
-    async getRoleData () {
+    async getRoleData() {
       // const res = await Api.getRoleData()
       // if (res.code === 200) {
       //   // console.log('debugger:我看看', res.data)
@@ -291,23 +324,23 @@ export default {
       // }
     },
     // 查询按钮
-    conditionEnter (data) {
+    conditionEnter(data) {
       this.queryData = data
       this.handlesCurrentChange(1)
     },
     // 选择当前展示的总页码
-    handlesSizeChange (val) {
+    handlesSizeChange(val) {
       this.table.pageSize = val
       this.getList()
     },
     // 选择当前页码
-    handlesCurrentChange (val) {
+    handlesCurrentChange(val) {
       this.table.currentPage = val
       this.getList()
     },
     // 用户状态修改
-    handleStatusChange (row) {
-      let text = row.status === true ? '启用' : '停用'
+    handleStatusChange(row) {
+      const text = row.status === true ? '启用' : '停用'
       this.$confirm(`确认要${text}${row.userName}用户吗?`, '警告', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -320,11 +353,11 @@ export default {
         //   this.getList()
         // }
       }).catch(() => {
-        row.status = row.status === true ? false : true
+        row.status = row.status !== true
       })
     },
     /** 查询部门下拉树结构 */
-    async getDeptTreeSelectData () {
+    async getDeptTreeSelectData() {
       // const res = await Api.treeselect()
       // if (res.success) {
       //   this.deptOptions = res.data
@@ -336,12 +369,12 @@ export default {
       // }
     },
     // 筛选节点
-    filterNode (value, data) {
+    filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
     },
     // 节点单击事件
-    handleNodeClick (data) {
+    handleNodeClick(data) {
       console.log('节点单击事件部门', data.id)
       // this.queryData.deptId = data.id
       this.$set(this.queryData, 'deptId', data.id)
@@ -349,28 +382,28 @@ export default {
       this.getList()
     },
     /** 新增按钮操作 */
-    handleAdd () {
+    handleAdd() {
       this.$refs.addForm.toDoAdd(this.roleData)
     },
     // 编辑
-    edit (data) {
+    edit(data) {
       console.log('编辑', data)
       this.$refs.addForm.edit(data.userId, this.roleData)
     },
-    //判断数据是否可以满一页
-    isFillList () {
+    // 判断数据是否可以满一页
+    isFillList() {
       if (this.table.data.length == 1 && this.table.currentPage > 1) {
         this.table.currentPage -= 1
       }
       this.getList()
     },
     // 复选框选中
-    selectionChange (data) {
+    selectionChange(data) {
       this.userIds = data.map(item => item.userId)
       // console.log(77, this.userIds)
     },
     /** 删除按钮操作 */
-    delHandle (row) {
+    delHandle(row) {
       const userIds = row.userId || this.userIds.join(',')
       this.$confirm(`是否确认删除用户?`, '警告', {
         confirmButtonText: '确定',
@@ -387,12 +420,12 @@ export default {
       })
     },
     // 重置密码
-    resetHandle (row) {
+    resetHandle(row) {
       // console.log('reset', row)
       this.$refs.resetUserForm.open(row.userId)
     },
     // 弹窗确认事件
-    submit () {
+    submit() {
       this.table.currentPage = 1
       this.getList()
     }
@@ -417,7 +450,7 @@ export default {
       height: 34px;
     }
 
-    ::v-deep .el-tree-node:focus>.el-tree-node__content {
+    ::v-deep .el-tree-node:focus > .el-tree-node__content {
       color: #355db4; //节点的字体颜色
     }
   }

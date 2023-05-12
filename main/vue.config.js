@@ -8,7 +8,7 @@ const productionGzipExtensions = ['js', 'css']
 // 这里只列一部分，具体配置参考文档
 module.exports = {
   // publicPath: process.env.BASE_URL ? process.env.BASE_URL : '/',
-  outputDir: '../dist/main',
+  outputDir: '../dist',
   lintOnSave: false,
   productionSourceMap: false,
   assetsDir: 'static',

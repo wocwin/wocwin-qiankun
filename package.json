@@ -5,17 +5,18 @@
   "main": "index.js",
   "scripts": {
     "install": "npm-run-all install:* ",
-    "install:main": "cd main && npm install ",
-    "install:vue2": "cd vue2 && npm install ",
-    "install:vue3Vite": "cd vue3Vite && npm install ",
+    "install:main": "cd main && npm install",
+    "install:vue2": "cd wocwin-vue2 && npm install",
+    "install:vue3": "cd wocwin-admin && pnpm install",
     "start": "npm-run-all start:* ",
-    "start:main": "cd main && start cmd /k npm run serve ",
-    "start:vue2": "cd vue2 && start cmd /k npm run serve  ",
-    "start:vue3Vite": "cd vue3Vite && start cmd /k npm run serve  ",
-    "build": "npm-run-all build:* ",
-    "build:main": "cd main && npm run prod ",
-    "build:vue2": "cd vue2 && npm run prod ",
-    "build:vue3Vite": "cd vue3Vite && npm run prod "
+    "start:main": "cd main && start cmd /k npm run serve",
+    "start:vue2": "cd wocwin-vue2 && start cmd /k npm run serve",
+    "start:vue3": "cd wocwin-admin && start cmd /k npm run serve",
+    "build": "cd main && npm run prod",
+    "build:all": "npm-run-all build:* ",
+    "build:main": "cd main && npm run prod",
+    "build:vue2": "cd wocwin-vue2 && npm run prod",
+    "build:vue3": "cd wocwin-admin && npm run prod"
   },
   "repository": {
     "type": "git",

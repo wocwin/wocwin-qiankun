@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="env_tag" v-if="ENV!='production'">{{ ENV }}</div>
+    <!-- <div class="env_tag" v-if="ENV!='production'">{{ ENV }}</div> -->
     <router-view v-if="isRouterAlive" />
   </div>
 </template>

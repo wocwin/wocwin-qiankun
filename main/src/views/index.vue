@@ -2,14 +2,14 @@
   <div class="home" @scroll="onScroll">
     <header class="header">
       <div class="header_logo">
-        <img src="@/assets/logo/logo.png" />
+        <img src="@/assets/logo/logo.png">
         <span class="logo_name">vue2主应用</span>
       </div>
       <h2>管理平台</h2>
       <div class="handle_wrap">
         <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
           <div class="avatar-wrapper" style="cursor: pointer;font-size: 16px">
-            <i class="el-icon-user"></i>
+            <i class="el-icon-user" />
             <span>{{ nickName }}</span>
             <i class="el-icon-caret-bottom" />
           </div>
@@ -26,16 +26,16 @@
     </header>
     <main class="main_content">
       <div class="sys_list">
-        <section class="sys_wrap" v-for="(item, i) in menu" :key="i">
+        <section v-for="(item, i) in menu" :key="i" class="sys_wrap">
           <div :class="['sys_title',{'sys':item.path=='/pms'}]">
-            <SvgIcon :icon-class="item.meta.icon" class="icon"></SvgIcon>
-            <div class="title">{{item.meta.title}}</div>
+            <SvgIcon :icon-class="item.meta.icon" class="icon" />
+            <div class="title">{{ item.meta.title }}</div>
           </div>
           <div class="module_wrap">
             <template v-for="(cItem, cI) in item.children">
-              <div class="module" :key="`${i}-${cI}`" @click="routeHandle(cItem,item)">
-                <SvgIcon :icon-class="cItem.meta.icon" class="font_family"></SvgIcon>
-                <div class="module_name">{{cItem.meta.title}}</div>
+              <div :key="`${i}-${cI}`" class="module" @click="routeHandle(cItem,item)">
+                <SvgIcon :icon-class="cItem.meta.icon" class="font_family" />
+                <div class="module_name">{{ cItem.meta.title }}</div>
               </div>
             </template>
           </div>
@@ -47,12 +47,12 @@
       append-to-body
       width="30%"
       :visible="dialogVisible"
-      @update:visible="cancel"
       :show-close="isShowPassword"
+      @update:visible="cancel"
     >
-      <t-form :ref-obj.sync="formOpts.ref" :formOpts="formOpts" :widthSize="1" />
+      <t-form :ref-obj.sync="formOpts.ref" :form-opts="formOpts" :width-size="1" />
       <template #footer>
-        <el-button size="small" v-if="isShowPassword" @click="cancel">取消</el-button>
+        <el-button v-if="isShowPassword" size="small" @click="cancel">取消</el-button>
         <el-button type="primary" size="small" @click="submit">保存</el-button>
       </template>
     </t-dialog>
@@ -81,27 +81,27 @@ export default {
         formData: {
           oldPassword: undefined, // 旧密码
           newPassword: undefined, // 新密码
-          confirmPassword: undefined, // 确认密码
+          confirmPassword: undefined // 确认密码
         },
         fieldList: [
-          { label: '旧密码', value: 'oldPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } },
-          { label: '新密码', value: 'newPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } },
-          { label: '确认密码', value: 'confirmPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } },
+          { label: '旧密码', value: 'oldPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }},
+          { label: '新密码', value: 'newPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }},
+          { label: '确认密码', value: 'confirmPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }}
         ],
         rules: {
           oldPassword: [
-            { required: true, message: "旧密码不能为空", trigger: "blur" },
+            { required: true, message: '旧密码不能为空', trigger: 'blur' }
           ],
           newPassword: [
-            { required: true, message: "新密码不能为空", trigger: "blur" },
+            { required: true, message: '新密码不能为空', trigger: 'blur' },
             { validator: isStrongPassword, trigger: 'blur' }
           ],
           confirmPassword: [
-            { required: true, message: "确认密码不能为空", trigger: "blur" },
+            { required: true, message: '确认密码不能为空', trigger: 'blur' },
             { validator: isStrongPassword, trigger: 'blur' },
-            { validator: this.equalToPassword, trigger: "blur" }
+            { validator: this.equalToPassword, trigger: 'blur' }
           ]
-        },
+        }
       },
       scrollTop: 0
     }
@@ -138,7 +138,7 @@ export default {
     },
     equalToPassword(rule, value, callback) {
       if (this.formOpts.formData.newPassword !== value) {
-        callback(new Error("两次输入的密码不一致"))
+        callback(new Error('两次输入的密码不一致'))
       } else {
         callback()
       }
@@ -149,7 +149,7 @@ export default {
     },
     // 修改密码弹窗确定
     submit() {
-      this.formOpts.ref.validate(async (valid) => {
+      this.formOpts.ref.validate(async(valid) => {
         if (!valid) return
         // console.log('点击确认', this.formOpts.formData)
         const formData = {
@@ -172,21 +172,15 @@ export default {
       })
     },
     routeHandle(curRoute) {
-      // console.log('111', curRoute)
       console.log('2222', curRoute.path.split('/'))
       if (curRoute.meta.disabled) return
       const route = getLastChild(curRoute)
-      //点击前清除缓存
+      // 点击前清除缓存
       this.$store.dispatch('tagsView/delAllViews')
       if (curRoute.path.split('/')[1] === 'pms') {
         window.history.pushState({}, '', route.path)
       } else {
-        console.log('444')
-        if (curRoute.path.split('/')[2] === 'app-vue3vite') {
-          window.history.pushState({}, '', `/${curRoute.path.split('/')[2]}`)
-        } else {
-          window.history.pushState({}, '', `/wocwin-qiankun/${curRoute.path.split('/')[2]}`)
-        }
+        window.history.pushState({}, '', `/${curRoute.path.split('/')[2]}/`)
       }
     },
     onScroll(e) {
@@ -208,7 +202,7 @@ export default {
           }
         })
       })
-    },
+    }
   }
 }
 </script>
@@ -412,8 +406,4 @@ export default {
   }
 }
 
-.is-closable {
-  right: 50%;
-  transform: translateX(50%);
-}
 </style>

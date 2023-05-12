@@ -1,5 +1,3 @@
-import Vue from 'vue'
-import App from './App'
 import router from './router'
 import store from './store'
 import { getLastChild } from '@/utils/getLastChild'
@@ -49,7 +47,7 @@ router.beforeEach((to, from, next) => {
           })
         }).catch(err => {
           store.dispatch('FedLogOut').then(() => {
-            Message.error(err.message || err.msg || "出现错误，请稍后再试")
+            Message.error(err.message || err.msg || '出现错误，请稍后再试')
             next({ path: '/' })
           })
         })
@@ -97,8 +95,8 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach((to) => {
-  //qiankun子应用跳转回主应用时判断#app是否还有渲染的子应用,如若没有则重新渲染主应用
-  if (!document.querySelectorAll("#app")[0]?.childNodes.length) {
+  // qiankun子应用跳转回主应用时判断#app是否还有渲染的子应用,如若没有则重新渲染主应用
+  if (!document.querySelectorAll('#app')[0]?.childNodes.length) {
     if (window.portal_fe_main) {
       window.portal_fe_main.$destroy()
       window.portal_fe_main = null

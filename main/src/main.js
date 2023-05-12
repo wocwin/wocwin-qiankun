@@ -6,6 +6,7 @@ import Element from 'element-ui'
 import '@/assets/styles/element-variables.scss'
 import '@/assets/styles/index.scss' // global css
 import '@/assets/font/fonts.scss'
+import '@/assets/iconfont/iconfont.css'
 import App from './App'
 import store from './store'
 import permission from './directive/permission'
@@ -87,10 +88,10 @@ registerMicroApps(apps, {
     console.log('before load', app)
     switch (app.name) {
       case 'portal-fe':
-        document.title = 'vue2常规模板'
+        document.title = 'wocwin-vue2'
         break
       case 'vue3-vite-fe':
-        document.title = 'vue3+vite模板'
+        document.title = 'wocwin-admin'
         break
     }
   },

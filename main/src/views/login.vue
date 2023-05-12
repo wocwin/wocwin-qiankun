@@ -2,6 +2,7 @@
   <div class="login">
     <div class="content">
       <div class="input-format">
+        <img src="@/assets/logo/logo.png" class="logon">
         <h3 class="title">vue2主应用</h3>
         <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
           <el-form-item prop="username">
@@ -47,10 +48,10 @@
 </template>
 
 <script>
-import Cookies from "js-cookie"
+import Cookies from 'js-cookie'
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       errorMsg: '',
@@ -65,15 +66,15 @@ export default {
         ],
         password: [
           { required: true, trigger: 'blur', message: '密码不能为空' }
-        ],
+        ]
       },
       loading: false,
       redirect: undefined
-    };
+    }
   },
   watch: {
     $route: {
-      handler: function (route) {
+      handler: function(route) {
         this.redirect = route.query && route.query.redirect
       },
       immediate: true
@@ -89,7 +90,7 @@ export default {
       const username = Cookies.get('username')
       const password = Cookies.get('password')
       const rememberMe = Cookies.get('rememberMe')
-      if (Boolean(rememberMe)) {
+      if (rememberMe) {
         this.loginForm = {
           username: username === undefined ? this.loginForm.username : username,
           password: password === undefined ? this.loginForm.password : decrypt(password),
@@ -100,16 +101,16 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
           localStorage.setItem('loginPassword', encrypt(this.loginForm.password))
           if (this.loginForm.rememberMe) {
-            Cookies.set('username', this.loginForm.username, { expires: 30 });
-            Cookies.set('password', encrypt(this.loginForm.password), { expires: 30 });
-            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 });
+            Cookies.set('username', this.loginForm.username, { expires: 30 })
+            Cookies.set('password', encrypt(this.loginForm.password), { expires: 30 })
+            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 })
           } else {
-            Cookies.remove('username');
-            Cookies.remove('password');
-            Cookies.remove('rememberMe');
+            Cookies.remove('username')
+            Cookies.remove('password')
+            Cookies.remove('rememberMe')
           }
           this.$store
             .dispatch('Login', this.loginForm)
@@ -126,7 +127,6 @@ export default {
                 // this.errorMsg = msg
                 this.loading = false
               }
-
             })
             .catch(() => {
               // console.log(999, err)
@@ -144,48 +144,48 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../assets/image/bg.png") no-repeat -2px;
   height: 100vh;
   background-size: cover;
-  padding: 50px 0;
   .content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     width: 100%;
     height: 100%;
-    // background: url('../assets/image/content.png') no-repeat 0;
-    background-size: 70%;
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 12%;
-    align-items: center;
+    padding-right: 8%;
+    background: url("../assets/image/guitar.jpg") no-repeat 0;
+    background-size: cover;
     .input-format {
       width: 340px;
-      height: 440px;
+      height: 420px;
       background: #fff;
       box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.2);
       border-radius: 4px;
       padding: 40px 37px;
       text-align: left;
       .logon {
-        width: 260px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
       }
       .title {
-        font-size: 29px;
-        font-family: PingFangSC-Medium, PingFang SC;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        font-size: 25px;
+        font-family: PingFangSC-Medium, "PingFang SC";
         font-weight: 600;
         color: #142969;
-        margin-top: 8px;
-        margin-bottom: 40px;
       }
       .login-form {
         box-sizing: border-box;
-        margin: 0;
         padding: 0;
-        color: rgba(0, 0, 0, 0.65);
+        margin: 0;
         font-size: 14px;
+        font-feature-settings: "tnum";
         font-variant: tabular-nums;
         line-height: 1.5;
+        color: rgb(0 0 0 / 65%);
         list-style: none;
-        font-feature-settings: "tnum";
         .el-input {
           height: 38px;
           input {
@@ -193,8 +193,8 @@ export default {
           }
         }
         .input-icon {
-          height: 39px;
           width: 14px;
+          height: 39px;
           margin-left: 2px;
         }
       }

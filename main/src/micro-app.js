@@ -1,15 +1,15 @@
 
 const microApps = [
   {
-    name: 'portal-fe',
+    name: 'wocwin-vue2',
     entry: process.env.VUE_APP_SUB_VUE2,
-    activeRule: '/wocwin-qiankun/app-vue2'
+    activeRule: '/wocwin-vue2/'
   },
   {
-    name: 'vue3-vite-fe',
+    name: 'wocwin-admin',
     entry: process.env.VUE_APP_SUB_VUE3,
-    // entry: '//localhost:3300/app-vue3vite/',
-    activeRule: '/app-vue3vite'
+    // entry: '//localhost:3300/wocwin-admin/',
+    activeRule: '/wocwin-admin/'
   }
 ]
 
