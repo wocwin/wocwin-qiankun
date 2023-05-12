@@ -87,7 +87,7 @@ watch(
   }
 );
 const goIndex = () => {
-  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/" : "/wocwin-admin/";
+  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/wocwin-qiankun/" : "/wocwin-admin/";
 };
 // change SubMenu
 const changeSubMenu = (item: Menu.MenuOptions) => {

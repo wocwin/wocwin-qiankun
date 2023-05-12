@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     goIndex() {
-      window.location.href = window.__POWERED_BY_QIANKUN__ ? '/' : '/wocwin-vue2/'
+      window.location.href = window.__POWERED_BY_QIANKUN__ ? '/wocwin-qiankun/' : '/wocwin-vue2/'
     }
   }
 }

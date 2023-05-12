@@ -71,7 +71,7 @@ export default {
       if (!window.__POWERED_BY_QIANKUN__) {
         this.$router.push({path:'/'})
       }else{
-        window.location.href = '/'
+        window.location.href = '/wocwin-qiankun/'
       }
     }
   }

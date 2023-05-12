@@ -2,7 +2,6 @@
   "name": "wocwin-qiankun",
   "version": "1.0.0",
   "description": "wocwin+qiankun技术栈实现的前端微应用架构。",
-  "main": "index.js",
   "scripts": {
     "install": "npm-run-all install:* ",
     "install:main": "cd main && npm install",
@@ -22,13 +21,19 @@
     "type": "git",
     "url": "https://github.com/wocwin/wocwin-qiankun.git"
   },
-  "homepage": "https://wocwin.github.io/t-ui/",
+  "homepage": "https://wocwin.github.io/wocwin-qiankun/",
   "keywords": [
     "vue",
     "vue3",
+    "vite4",
     "vite",
     "webpack",
     "t-ui",
+    "t-ui-plus",
+    "wocwin",
+    "wocwin-vue2",
+    "wocwin-admin",
+    "wocwin-qiankun",
     "qiankun",
     "element-ui",
     "vitepress",

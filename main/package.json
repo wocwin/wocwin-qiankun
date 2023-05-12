@@ -1,5 +1,5 @@
 {
-  "name": "wocwin-qiankun-main",
+  "name": "wocwin-qiankun",
   "version": "1.0.0",
   "description": "wocwin主项目",
   "author": "wocwin",
@@ -20,9 +20,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wocwin/wocwin-qiankun-main.git"
+    "url": "https://github.com/wocwin/wocwin-qiankun.git"
   },
-  "homepage": "https://wocwin.github.io/t-ui/",
+  "homepage": "https://wocwin.github.io/wocwin-qiankun/",
   "keywords": [
     "vue",
     "vue3",
