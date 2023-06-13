@@ -49,7 +49,7 @@ const user = {
     },
     LOGOUT(state) {
       state = user
-      window.location.href = '/'
+      window.location.href = '/wocwin-qiankun/'
     }
   },
 

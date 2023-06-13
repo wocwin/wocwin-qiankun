@@ -12,7 +12,7 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f https://github.com/wocwin/wocwin-qiankun.git main:gh-pages
+git push -f https://github.com/wocwin/wocwin-qiankun.git master:gh-pages
 
 # git remote add origin https://github.com/wocwin/myVuePress.git
 # git push origin --delete gh-pages

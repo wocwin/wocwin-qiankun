@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "wocwin+qiankun技术栈实现的前端微应用架构。",
   "scripts": {
+    "deploy": "deploy.sh",
     "install": "npm-run-all install:* ",
     "install:main": "cd main && npm install",
     "install:vue2": "cd wocwin-vue2 && npm install",
@@ -25,15 +26,9 @@
   "keywords": [
     "vue",
     "vue3",
-    "vite4",
     "vite",
     "webpack",
     "t-ui",
-    "t-ui-plus",
-    "wocwin",
-    "wocwin-vue2",
-    "wocwin-admin",
-    "wocwin-qiankun",
     "qiankun",
     "element-ui",
     "vitepress",

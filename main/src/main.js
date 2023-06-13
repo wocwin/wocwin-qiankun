@@ -34,15 +34,15 @@ Vue.prototype.$api = api
 Vue.prototype.$constant = GlobalConstant // 静态字典
 Vue.prototype.$resetMessage = message // 防止重复点击重复弹出message弹框
 
-Vue.prototype.msgSuccess = function (msg) {
+Vue.prototype.msgSuccess = function(msg) {
   this.$message({ showClose: true, message: msg, type: 'success' })
 }
 
-Vue.prototype.msgError = function (msg) {
+Vue.prototype.msgError = function(msg) {
   this.$message({ showClose: true, message: msg, type: 'error' })
 }
 
-Vue.prototype.msgInfo = function (msg) {
+Vue.prototype.msgInfo = function(msg) {
   this.$message.info(msg)
 }
 
@@ -87,10 +87,10 @@ registerMicroApps(apps, {
   beforeLoad: (app) => {
     console.log('before load', app)
     switch (app.name) {
-      case 'portal-fe':
+      case 'wocwin-vue2':
         document.title = 'wocwin-vue2'
         break
-      case 'vue3-vite-fe':
+      case 'wocwin-admin':
         document.title = 'wocwin-admin'
         break
     }
@@ -103,7 +103,7 @@ start({
   prefetch: false // 取消预加载
 })
 
-new Vue({
+window.wocwin_qiankun = new Vue({
   router,
   store,
   render: h => h(App)

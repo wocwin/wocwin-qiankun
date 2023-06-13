@@ -32,11 +32,11 @@ export default {
     },
     title() {
       return process.env.VUE_APP_SYS_TITLE
-    },
+    }
   },
   methods: {
     goIndex() {
-      window.location.href = '/'
+      window.location.href = '/wocwin-qiankun/'
     }
   }
 }

@@ -35,7 +35,7 @@ git clone https://gitee.com/wocwin/wocwin-qiankun.git
 2. 依赖安装
 
    ```bash
-   npm run install
+   npm install
    ```
 
 3. 项目启动
@@ -46,15 +46,13 @@ git clone https://gitee.com/wocwin/wocwin-qiankun.git
 
 4. 本地运行
 
-```json
-1、运行完 npm run start
-2、打开http://localhost:8100/ 进入主应用
-3、逐个进入子应用（点击子应用左侧菜单栏logo可以回到主应用）
-4、主应用的系统管理是所有应用的公共模板（用户、角色、菜单、部门、微前端、字典等）
+```js
+// 1、运行完 npm run start
+// 2、打开http://localhost:8100/ 进入主应用
+// 3、逐个进入子应用（点击子应用左侧菜单栏logo可以回到主应用）
+// 4、主应用的系统管理是所有应用的公共模板（用户、角色、菜单、部门、微前端、字典等）
 ```
+5. 若进入主应用点击无法进入子应用（先登录主应用，在浏览器新开页签单独进入各个子应用）
 
-5. 本地部署到服务器需要配置 NG（可以参考：nginx.conf 文件）
+6. 本地部署到服务器需要配置 NG（可以参考：nginx.conf 文件）
 
-## 支持
-
-如果觉得 wocwin-qiankun 这个 demo 为你提供了不错的思路，或者已经在使用了，希望你可以帮我点个 ⭐ ，这将对我是极大的鼓励。

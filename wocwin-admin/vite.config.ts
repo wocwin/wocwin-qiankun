@@ -65,7 +65,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(),
     build: {
       outDir: "dist",
-      minify: "esbuild", // esbuild打包速度最快，terser打包体积最小。
+      minify: "terser", // esbuild打包速度最快，terser打包体积最小。
       // assetsInlineLimit: 4000, // 小于该值 图片将打包成Base64
       terserOptions: {
         compress: {

@@ -1,3 +1,5 @@
+import Vue from 'vue'
+import App from './App'
 import router from './router'
 import store from './store'
 import { getLastChild } from '@/utils/getLastChild'
@@ -96,18 +98,20 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
   // qiankun子应用跳转回主应用时判断#app是否还有渲染的子应用,如若没有则重新渲染主应用
-  if (!document.querySelectorAll('#app')[0]?.childNodes.length) {
-    if (window.portal_fe_main) {
-      window.portal_fe_main.$destroy()
-      window.portal_fe_main = null
-      console.log('我看看是啥', window.portal_fe_main)
+  setTimeout(() => {
+    console.log('1111', to)
+    if (to.path === '/') {
+      if (window.wocwin_qiankun) {
+        window.wocwin_qiankun.$destroy()
+        window.wocwin_qiankun = null
+      }
+      window.wocwin_qiankun = new Vue({
+        router,
+        store,
+        render: h => h(App)
+      }).$mount('#app')
     }
-    // window.portal_fe_main = new Vue({
-    //   router,
-    //   store,
-    //   render: h => h(App)
-    // }).$mount('#app')
-  }
+  }, 300)
   if (!to.meta.noCache) { // 新增缓存tag
     store.dispatch('tagsView/addView', to)
   }
