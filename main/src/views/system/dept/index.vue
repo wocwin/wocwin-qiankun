@@ -7,11 +7,11 @@
       <t-table
         title="部门管理列表"
         :table="table"
-        isCopy
+        is-copy
         row-key="deptId"
         :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
         :columns="table.columns"
-        :isShowPagination="false"
+        :is-show-pagination="false"
       >
         <!-- 状态插槽 -->
         <template #status="{param}">
@@ -20,7 +20,7 @@
             :active-value="true"
             :inactive-value="false"
             @change="handleStatusChange(param.row)"
-          ></el-switch>
+          />
         </template>
         <!-- 表格外按钮toolbar插槽 -->
         <template #toolbar>
@@ -32,33 +32,34 @@
             @change="handleClick"
           />
           <el-button
+            v-hasPermi="'root:web:sys:dept:download'"
             size="mini"
             @click="downloadTemplate"
-            v-hasPermi="'root:web:sys:dept:download'"
           >下载模板</el-button>
           <el-button
+            v-hasPermi="'root:web:sys:dept:import'"
             type="primary"
             size="mini"
             @click="importExcel"
-            v-hasPermi="'root:web:sys:dept:import'"
           >批量导入</el-button>
-          <el-button size="mini" @click="exportExcel" v-hasPermi="'root:web:sys:dept:export'">导出</el-button>
+          <el-button v-hasPermi="'root:web:sys:dept:export'" size="mini" @click="exportExcel">导出</el-button>
           <el-button
+            v-hasPermi="'root:web:sys:dept:add'"
             type="primary"
             size="mini"
             @click="handleAdd"
-            v-hasPermi="'root:web:sys:dept:add'"
           >新增</el-button>
         </template>
       </t-table>
     </div>
-    <add-form ref="addForm" :deptData="deptOptions" @submit="submit" @cancel="cancel" />
+    <add-form ref="addForm" :dept-data="deptOptions" @submit="submit" @cancel="cancel" />
   </div>
 </template>
 <script>
 import AddForm from './addForm'
+import dataList from './dataList.json'
 export default {
-  name: "Dept",
+  name: 'Dept',
   components: { AddForm },
   data() {
     return {
@@ -67,7 +68,7 @@ export default {
       queryData: {
         deptName: undefined, // 部门名称
         deptNum: undefined, // 部门编码
-        status: undefined, // 状态
+        status: undefined // 状态
       },
       table: {
         data: [],
@@ -77,7 +78,7 @@ export default {
           { prop: 'erpDeptNum', label: 'ERP部门编码', minWidth: 180, align: 'left' },
           { prop: 'orderNum', label: '排序', width: '60px', align: 'left' },
           { prop: 'createTime', label: '创建时间', width: '100px', align: 'left' },
-          { prop: 'status', label: '状态', slotName: 'status', width: '80px', align: 'left' },
+          { prop: 'status', label: '状态', slotName: 'status', width: '80px', align: 'left' }
         ],
         // 表格内操作列
         operator: [
@@ -90,7 +91,7 @@ export default {
             text: '删除',
             fun: this.delHandle,
             hasPermi: 'root:web:sys:dept:del'
-          },
+          }
         ],
         // 操作列样式
         operatorConfig: {
@@ -137,7 +138,7 @@ export default {
               }
             }
           ]
-        },
+        }
       }
     },
     getQueryData() {
@@ -145,9 +146,9 @@ export default {
       return {
         deptName,
         deptNum,
-        status,
+        status
       }
-    },
+    }
   },
   created() {
     this.getList()
@@ -155,12 +156,13 @@ export default {
   methods: {
     /** 查询岗位列表 */
     async getList() {
-      // this.loading = true
+      this.loading = true
       // const res = await Api.listDept(this.getQueryData)
-      // if (res.success) {
-      //   this.table.data = this.handleTree(res.data, 'deptId')
-      // }
-      // this.loading = false
+      const res = await dataList
+      if (res.success) {
+        this.table.data = this.handleTree(res.data, 'deptId')
+      }
+      this.loading = false
     },
     // 查询按钮
     conditionEnter(data) {
@@ -169,20 +171,20 @@ export default {
     },
     // 部门状态修改
     handleStatusChange(row) {
-      let text = row.status === true ? '启用' : '停用'
+      const text = row.status === true ? '启用' : '停用'
       this.$confirm(`确认要${text}${row.deptName}部门吗?`, '警告', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }
-      ).then(async () => {
+      ).then(() => {
         // const res = await Api.updateDept(row)
         // if (res.success) {
         //   this.$message.success(`${text}成功`)
         //   this.getList()
         // }
       }).catch(() => {
-        row.status = row.status === true ? false : true
+        row.status = row.status !== true
       })
     },
     /** 查询部门下拉树结构 */
@@ -209,7 +211,7 @@ export default {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
-      }).then(async () => {
+      }).then(() => {
         // const res = await Api.delDept(deptId)
         // if (res.success) {
         //   this.$message.success(`删除成功`)
@@ -240,7 +242,7 @@ export default {
       this.filesName = rawFile.name && rawFile.name.split('.')[0]
       // console.log('获取上传的文件', rawFile, this.filesName)
       if (!rawFile) return
-      let formData = new FormData()
+      const formData = new FormData()
       formData.append('file', rawFile)
       this.checkFile(formData)
     },

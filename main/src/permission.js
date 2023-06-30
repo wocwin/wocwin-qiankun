@@ -13,23 +13,21 @@ NProgress.configure({ showSpinner: false })
 
 const whiteList = ['/login', '/auth-redirect']
 
-function handleKeepAlive(to) {
-  if (to.matched && to.matched.length > 1) {
-    for (let i = 0; i < to.matched.length; i++) {
-      const element = to.matched[i]
-      if (element.components.default.name === 'ViewBox') {
-        to.matched.splice(i, 1)
-        handleKeepAlive(to)
-      }
-    }
-  }
-}
 // 检测是否满足强密码
 function isPassword(password) {
   const reg = /^(?=.*?\d+.*?)(?=.*[A-z].*?)[\da-zA-Z\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E]{6,20}$/
   return reg.test(password)
 }
 router.beforeEach((to, from, next) => {
+  // 解决三级菜单页面缓存问题
+  if (to.matched && to.matched.length > 1) {
+    for (let i = 0; i < to.matched.length; i++) {
+      const element = to.matched[i]
+      if (element.components.default.name === 'ViewBox') {
+        to.matched.splice(i, 1)
+      }
+    }
+  }
   NProgress.start()
   const token = getToken()
   if (token) {
@@ -59,8 +57,8 @@ router.beforeEach((to, from, next) => {
         if (to.path === '/' && (add_routes.length === 1 || (add_routes.length <= 1 && add_routes[0].children && add_routes[0].children.length === 1))) {
           const lastChild = getLastChild(add_routes[0])
           if (to.path === lastChild.path) return false
+          // console.log('777', lastChild)
           // console.log('路由守卫', decrypt(localStorage.getItem('loginPassword')))
-          // console.log('路由守卫222', isPassword(decrypt(localStorage.getItem('loginPassword'))))
           if (isPassword(decrypt(localStorage.getItem('loginPassword')))) {
             next(lastChild)
           } else {
@@ -69,18 +67,19 @@ router.beforeEach((to, from, next) => {
           NProgress.done()
         } else {
           // console.log('主项目的next')
-          handleKeepAlive(to)
-          // 判断弱密码无法修改路由跳转页面
-          if (isPassword(decrypt(localStorage.getItem('loginPassword')))) {
-            next()
-          } else {
-            // 判断弱密码无法修改路由跳转页面
-            if (to.path === '/') {
-              next()
-            } else {
-              next({ path: '/' })
-            }
-          }
+          next()
+          // handleKeepAlive(to)
+          // // 判断弱密码无法修改路由跳转页面
+          // if (isPassword(decrypt(localStorage.getItem('loginPassword')))) {
+          //   next()
+          // } else {
+          //   // 判断弱密码无法修改路由跳转页面
+          //   if (to.path === '/') {
+          //     next()
+          //   } else {
+          //     next({ path: '/' })
+          //   }
+          // }
         }
       }
     }
@@ -99,7 +98,6 @@ router.beforeEach((to, from, next) => {
 router.afterEach((to) => {
   // qiankun子应用跳转回主应用时判断#app是否还有渲染的子应用,如若没有则重新渲染主应用
   setTimeout(() => {
-    console.log('1111', to)
     if (to.path === '/') {
       if (window.wocwin_qiankun) {
         window.wocwin_qiankun.$destroy()

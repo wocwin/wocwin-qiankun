@@ -1,13 +1,13 @@
 // 回显数据字典
 export function selectDictLabel(datas, value) {
-  var actions = [];
+  var actions = []
   Object.keys(datas).map((key) => {
     if (datas[key].dictValue == ('' + value)) {
-      actions.push(datas[key].dictLabel);
-      return false;
+      actions.push(datas[key].dictLabel)
+      return false
     }
   })
-  return actions.join('');
+  return actions.join('')
 }
 /**
  * 构造树型结构数据
@@ -22,19 +22,19 @@ export function handleTree(data, id, parentId, children, rootId) {
   parentId = parentId || 'parentId'
   children = children || 'children'
   rootId = rootId || 0
-  //对源数据深度克隆
+  // 对源数据深度克隆
   const cloneData = JSON.parse(JSON.stringify(data))
-  //循环所有项
+  // 循环所有项
   const treeData = cloneData.filter(father => {
-    let branchArr = cloneData.filter(child => {
-      //返回每一项的子级数组
+    const branchArr = cloneData.filter(child => {
+      // 返回每一项的子级数组
       return father[id] === child[parentId]
-    });
-    branchArr.length > 0 ? father.children = branchArr : '';
-    //返回第一层
-    return father[parentId] === rootId;
-  });
-  return treeData != '' ? treeData : data;
+    })
+    branchArr.length > 0 ? father.children = branchArr : ''
+    // 返回第一层
+    return father[parentId] === rootId
+  })
+  return treeData !== '' ? treeData : data
 }
 
 // 验证是否为blob格式
@@ -49,10 +49,10 @@ export async function blobValidate(data) {
 }
 // 验证是否是域名
 export function checkdomain() {
-  let reg = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z][-a-zA-Z]{0,62})+(:\d+)*([\/]|(\/\w+))*$/
+  const reg = /^(?=^.{3,255}$)(http(s)?:\/\/)?(www\.)?[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(\.[a-zA-Z][-a-zA-Z]{0,62})+(:\d+)*([\/]|(\/\w+))*$/
   // console.log("d.h: " + document.URL)
-  let url = document.URL.split("://")[1];
-  let hp = url.split("/")[0];
+  const url = document.URL.split('://')[1]
+  const hp = url.split('/')[0]
   const allowed_domain = ['tsdr.dongxinsoft.cn:8088', 'uat.tsdrxny.com:8088', 'prod.tsdrxny.com:8088']
   return reg.test(document.domain) ? allowed_domain.includes(hp) : false
 }
@@ -61,7 +61,7 @@ export function checkdomain() {
  * 表格时间格式化
  */
 export function formatDate(cellValue) {
-  if (cellValue == null || cellValue == "") return "";
+  if (cellValue == null || cellValue == '') return ''
   var date = new Date(cellValue)
   var year = date.getFullYear()
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
@@ -444,8 +444,8 @@ export function isNumberStr(str) {
 }
 // json数据转FormData
 export function jsonToFormData(obj) {
-  let fd = new FormData()
-  let keys = Object.keys(obj)
+  const fd = new FormData()
+  const keys = Object.keys(obj)
   keys.forEach(key => {
     fd.append(key, obj[key])
   })

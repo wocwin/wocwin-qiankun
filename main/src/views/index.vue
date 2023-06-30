@@ -2,7 +2,7 @@
   <div class="home" @scroll="onScroll">
     <header class="header">
       <div class="header_logo">
-        <img src="@/assets/logo/logo.png">
+        <img src="@/assets/logo/logo.png" />
         <span class="logo_name">vue2主应用</span>
       </div>
       <h2>管理平台</h2>
@@ -84,9 +84,9 @@ export default {
           confirmPassword: undefined // 确认密码
         },
         fieldList: [
-          { label: '旧密码', value: 'oldPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }},
-          { label: '新密码', value: 'newPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }},
-          { label: '确认密码', value: 'confirmPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true }}
+          { label: '旧密码', value: 'oldPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } },
+          { label: '新密码', value: 'newPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } },
+          { label: '确认密码', value: 'confirmPassword', type: 'password', comp: 'el-input', bind: { 'show-password': true } }
         ],
         rules: {
           oldPassword: [
@@ -123,9 +123,10 @@ export default {
     // console.log('created', this.isPassword(decrypt(localStorage.getItem('loginPassword'))))
     this.isShowPassword = this.isPassword(decrypt(localStorage.getItem('loginPassword')))
     if (!this.isShowPassword) {
-      // this.$resetMessage.warning({ message: '当前登录密码安全系数太低，请修改密码！', duration: 0, showClose: true })
-      this.title = '登录密码是弱密码，请修改密码'
-      this.dialogVisible = true
+      this.$resetMessage.warning({ message: '当前登录密码安全系数太低，请修改密码！', duration: 0, showClose: true })
+      // this.title = '登录密码是弱密码，请修改密码'
+      // this.$resetMessage.warning('登录密码是弱密码，建议修改密码！')
+      // this.dialogVisible = true
     }
     // console.log('333', process.env.BASE_URL)
     // console.log('222', this.menu)
@@ -149,7 +150,7 @@ export default {
     },
     // 修改密码弹窗确定
     submit() {
-      this.formOpts.ref.validate(async(valid) => {
+      this.formOpts.ref.validate(async (valid) => {
         if (!valid) return
         // console.log('点击确认', this.formOpts.formData)
         const formData = {
@@ -405,5 +406,4 @@ export default {
     }
   }
 }
-
 </style>

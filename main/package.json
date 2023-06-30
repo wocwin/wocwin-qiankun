@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",
-    "@wocwin/t-ui": "^1.0.18",
+    "@wocwin/t-ui": "^1.0.22",
     "axios": "0.18.1",
     "bpmn-js": "^7.5.0",
     "bpmn-js-properties-panel": "^0.38.1",
