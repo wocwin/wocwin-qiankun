@@ -121,13 +121,13 @@ export default {
   },
   created() {
     // console.log('created', this.isPassword(decrypt(localStorage.getItem('loginPassword'))))
-    this.isShowPassword = this.isPassword(decrypt(localStorage.getItem('loginPassword')))
-    if (!this.isShowPassword) {
-      this.$resetMessage.warning({ message: '当前登录密码安全系数太低，请修改密码！', duration: 0, showClose: true })
-      // this.title = '登录密码是弱密码，请修改密码'
-      // this.$resetMessage.warning('登录密码是弱密码，建议修改密码！')
-      // this.dialogVisible = true
-    }
+    // this.isShowPassword = this.isPassword(decrypt(localStorage.getItem('loginPassword')))
+    // if (!this.isShowPassword) {
+    //   this.$resetMessage.warning({ message: '当前登录密码安全系数太低，请修改密码！', duration: 0, showClose: true })
+    //   // this.title = '登录密码是弱密码，请修改密码'
+    //   // this.$resetMessage.warning('登录密码是弱密码，建议修改密码！')
+    //   // this.dialogVisible = true
+    // }
     // console.log('333', process.env.BASE_URL)
     // console.log('222', this.menu)
   },
@@ -181,6 +181,8 @@ export default {
       if (curRoute.path.split('/')[1] === 'pms') {
         window.history.pushState({}, '', route.path)
       } else {
+        console.log('route.path-----', route.path, `/${curRoute.path.split('/')[2]}/`)
+        // return
         window.history.pushState({}, '', `/${curRoute.path.split('/')[2]}/`)
       }
     },

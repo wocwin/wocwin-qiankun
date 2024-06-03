@@ -68,18 +68,6 @@ router.beforeEach((to, from, next) => {
         } else {
           // console.log('主项目的next')
           next()
-          // handleKeepAlive(to)
-          // // 判断弱密码无法修改路由跳转页面
-          // if (isPassword(decrypt(localStorage.getItem('loginPassword')))) {
-          //   next()
-          // } else {
-          //   // 判断弱密码无法修改路由跳转页面
-          //   if (to.path === '/') {
-          //     next()
-          //   } else {
-          //     next({ path: '/' })
-          //   }
-          // }
         }
       }
     }

@@ -4,7 +4,7 @@ import ViewBox from '@/views/viewBox/index'
 import { Message } from 'element-ui'
 import Notification from '@/utils/Notification'
 import { removeToken } from '@/utils/auth'
-import RoutersData from './getData/routersData.json'
+import { getRouters } from "@/api/modules/login";
 const permission = {
   state: {
     routes: [],
@@ -43,9 +43,9 @@ const permission = {
     },
     // 生成系统路由和系统按钮权限
     GenerateRoutes({ commit }) {
-      return new Promise((resolve) => {
+      return new Promise(async (resolve) => {
         // 获取路由数据
-        const routerRes = RoutersData
+        const routerRes = await getRouters()
         console.log('routerRes', routerRes?.data)
         rebuildRouter(routerRes?.data)
         const newRouter = filterAsyncRouter(routerRes.data && routerRes.data[0].children, 1)

@@ -11,7 +11,10 @@
       "redirect": null,
       "component": "Layout",
       "alwaysShow": true,
-      "meta": { "title": "主应用", "icon": "textarea" },
+      "meta": {
+        "title": "主应用",
+        "icon": "textarea"
+      },
       "visible": "0",
       "menuType": "M",
       "children": [
@@ -23,7 +26,10 @@
           "redirect": null,
           "component": "Layout",
           "alwaysShow": true,
-          "meta": { "title": "子应用系统", "icon": "nav_system" },
+          "meta": {
+            "title": "子应用系统",
+            "icon": "nav_system"
+          },
           "visible": "0",
           "menuType": "M",
           "children": [
@@ -35,7 +41,10 @@
               "redirect": null,
               "component": "Layout",
               "alwaysShow": true,
-              "meta": { "title": "wocwin-vue2", "icon": "chart" },
+              "meta": {
+                "title": "wocwin-vue2",
+                "icon": "chart"
+              },
               "visible": "0",
               "menuType": "M",
               "children": [
@@ -47,7 +56,10 @@
                   "redirect": null,
                   "component": "demo/TTable/base",
                   "alwaysShow": true,
-                  "meta": { "title": "TTable组件", "icon": "#" },
+                  "meta": {
+                    "title": "TTable组件",
+                    "icon": "#"
+                  },
                   "visible": "0",
                   "menuType": "M",
                   "children": [
@@ -59,7 +71,10 @@
                       "redirect": null,
                       "component": "demo/TTable/base",
                       "alwaysShow": null,
-                      "meta": { "title": "常规操作", "icon": "#" },
+                      "meta": {
+                        "title": "常规操作",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -74,7 +89,10 @@
                       "redirect": null,
                       "component": "demo/TTable/copy",
                       "alwaysShow": null,
-                      "meta": { "title": "双击复制单元格", "icon": "#" },
+                      "meta": {
+                        "title": "双击复制单元格",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -89,7 +107,10 @@
                       "redirect": null,
                       "component": "demo/TTable/mergedCell",
                       "alwaysShow": null,
-                      "meta": { "title": "合并单元格", "icon": "#" },
+                      "meta": {
+                        "title": "合并单元格",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -104,7 +125,10 @@
                       "redirect": null,
                       "component": "demo/TTable/textColor",
                       "alwaysShow": null,
-                      "meta": { "title": "整行文字变色", "icon": "#" },
+                      "meta": {
+                        "title": "整行文字变色",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -119,7 +143,10 @@
                       "redirect": null,
                       "component": "demo/TTable/pagination",
                       "alwaysShow": null,
-                      "meta": { "title": "分页", "icon": "#" },
+                      "meta": {
+                        "title": "分页",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -134,7 +161,10 @@
                       "redirect": null,
                       "component": "demo/TTable/renderHeader",
                       "alwaysShow": null,
-                      "meta": { "title": "自定义列标题", "icon": "#" },
+                      "meta": {
+                        "title": "自定义列标题",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -149,7 +179,10 @@
                       "redirect": null,
                       "component": "demo/TTable/radio",
                       "alwaysShow": null,
-                      "meta": { "title": "单选", "icon": "#" },
+                      "meta": {
+                        "title": "单选",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -164,7 +197,10 @@
                       "redirect": null,
                       "component": "demo/TTable/checkboxSpecial",
                       "alwaysShow": null,
-                      "meta": { "title": "条件复选", "icon": "#" },
+                      "meta": {
+                        "title": "条件复选",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -179,7 +215,10 @@
                       "redirect": null,
                       "component": "demo/TTable/checkbox",
                       "alwaysShow": null,
-                      "meta": { "title": "基本复选", "icon": "#" },
+                      "meta": {
+                        "title": "基本复选",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -194,7 +233,10 @@
                       "redirect": null,
                       "component": "demo/TTable/singleEditTable",
                       "alwaysShow": null,
-                      "meta": { "title": "单元格编辑", "icon": "#" },
+                      "meta": {
+                        "title": "单元格编辑",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -209,7 +251,10 @@
                       "redirect": null,
                       "component": "demo/TTable/editTable",
                       "alwaysShow": null,
-                      "meta": { "title": "整行编辑", "icon": "#" },
+                      "meta": {
+                        "title": "整行编辑",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -224,7 +269,10 @@
                       "redirect": null,
                       "component": "demo/TTable/columnSet",
                       "alwaysShow": null,
-                      "meta": { "title": "动态显示隐藏列", "icon": "#" },
+                      "meta": {
+                        "title": "动态显示隐藏列",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -239,7 +287,10 @@
                       "redirect": null,
                       "component": "demo/TTable/customRender",
                       "alwaysShow": null,
-                      "meta": { "title": "按钮自定义渲染", "icon": "#" },
+                      "meta": {
+                        "title": "按钮自定义渲染",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -254,7 +305,10 @@
                       "redirect": null,
                       "component": "demo/TTable/operationInside",
                       "alwaysShow": null,
-                      "meta": { "title": "表格内操作", "icon": "#" },
+                      "meta": {
+                        "title": "表格内操作",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -269,7 +323,10 @@
                       "redirect": null,
                       "component": "demo/TTable/operationOutside",
                       "alwaysShow": null,
-                      "meta": { "title": "表格外操作", "icon": "#" },
+                      "meta": {
+                        "title": "表格外操作",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -284,7 +341,10 @@
                       "redirect": null,
                       "component": "demo/TTable/combineTableMixin",
                       "alwaysShow": null,
-                      "meta": { "title": "合计指定列", "icon": "#" },
+                      "meta": {
+                        "title": "合计指定列",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -303,7 +363,10 @@
                   "redirect": null,
                   "component": "Layout",
                   "alwaysShow": true,
-                  "meta": { "title": "复杂组件案例", "icon": "#" },
+                  "meta": {
+                    "title": "复杂组件案例",
+                    "icon": "#"
+                  },
                   "visible": "0",
                   "menuType": "M",
                   "children": [
@@ -315,7 +378,10 @@
                       "redirect": null,
                       "component": "demo/TForm",
                       "alwaysShow": null,
-                      "meta": { "title": "表单组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "表单组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -330,7 +396,10 @@
                       "redirect": null,
                       "component": "demo/TModuleForm",
                       "alwaysShow": null,
-                      "meta": { "title": "模块表单示例", "icon": "#" },
+                      "meta": {
+                        "title": "模块表单示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -345,7 +414,10 @@
                       "redirect": null,
                       "component": "demo/TModuleDetail",
                       "alwaysShow": null,
-                      "meta": { "title": "模块详情示例", "icon": "#" },
+                      "meta": {
+                        "title": "模块详情示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -360,7 +432,10 @@
                       "redirect": null,
                       "component": "demo/TQueryCondition",
                       "alwaysShow": null,
-                      "meta": { "title": "查询条件组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "查询条件组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -375,7 +450,10 @@
                       "redirect": null,
                       "component": "demo/TStepWizard",
                       "alwaysShow": null,
-                      "meta": { "title": "步骤组件组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "步骤组件组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -390,7 +468,10 @@
                       "redirect": null,
                       "component": "demo/TUploadExcel",
                       "alwaysShow": null,
-                      "meta": { "title": "Excel导入组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "Excel导入组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -405,7 +486,10 @@
                       "redirect": null,
                       "component": "demo/TDialog",
                       "alwaysShow": null,
-                      "meta": { "title": "弹窗组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "弹窗组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -420,7 +504,10 @@
                       "redirect": null,
                       "component": "demo/TDatePicker",
                       "alwaysShow": null,
-                      "meta": { "title": "日期组件示例", "icon": "#" },
+                      "meta": {
+                        "title": "日期组件示例",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -443,116 +530,26 @@
               "redirect": null,
               "component": "Layout",
               "alwaysShow": true,
-              "meta": { "title": "wocwin-admin", "icon": "drag" },
+              "meta": {
+                "title": "wocwin-admin",
+                "icon": "drag"
+              },
               "visible": "0",
               "menuType": "M",
               "children": [
                 {
-                  "id": 902,
-                  "name": "Layout",
-                  "path": "test",
-                  "hidden": false,
-                  "redirect": null,
-                  "component": "Layout",
-                  "alwaysShow": true,
-                  "meta": { "title": "test页面", "icon": "" },
-                  "visible": "0",
-                  "menuType": "M",
-                  "children": [
-                    {
-                      "id": 906,
-                      "name": "Table",
-                      "path": "table",
-                      "hidden": false,
-                      "redirect": null,
-                      "component": "vitedemo/test/table/index.vue",
-                      "alwaysShow": null,
-                      "meta": { "title": "table组件示例", "icon": "#" },
-                      "visible": "0",
-                      "menuType": "C",
-                      "children": null,
-                      "needCache": true,
-                      "domainVisible": false
-                    },
-                    {
-                      "id": 907,
-                      "name": "Query",
-                      "path": "query",
-                      "hidden": false,
-                      "redirect": null,
-                      "component": "vitedemo/test/query/index.vue",
-                      "alwaysShow": null,
-                      "meta": { "title": "query组件", "icon": "#" },
-                      "visible": "0",
-                      "menuType": "C",
-                      "children": null,
-                      "needCache": true,
-                      "domainVisible": false
-                    },
-                    {
-                      "id": 908,
-                      "name": "Test1",
-                      "path": "test1",
-                      "hidden": false,
-                      "redirect": null,
-                      "component": "vitedemo/test/test1/index.vue",
-                      "alwaysShow": null,
-                      "meta": { "title": "test1页面", "icon": "#" },
-                      "visible": "0",
-                      "menuType": "C",
-                      "children": null,
-                      "needCache": true,
-                      "domainVisible": false
-                    }
-                  ],
-                  "needCache": true,
-                  "domainVisible": false
-                },
-                {
-                  "id": 903,
-                  "name": "Layout",
-                  "path": "menu",
-                  "hidden": false,
-                  "redirect": null,
-                  "component": "Layout",
-                  "alwaysShow": true,
-                  "meta": { "title": "menu菜单", "icon": "" },
-                  "visible": "0",
-                  "menuType": "M",
-                  "children": [
-                    {
-                      "id": 904,
-                      "name": "Menu1",
-                      "path": "menu1",
-                      "hidden": false,
-                      "redirect": null,
-                      "component": "vitedemo/menu/menu1/index.vue",
-                      "alwaysShow": null,
-                      "meta": { "title": "menu1菜单", "icon": "#" },
-                      "visible": "0",
-                      "menuType": "C",
-                      "children": null,
-                      "needCache": true,
-                      "domainVisible": false
-                    },
-                    {
-                      "id": 905,
-                      "name": "Menu1",
-                      "path": "menu2",
-                      "hidden": false,
-                      "redirect": null,
-                      "component": "vitedemo/menu/menu1/index.vue",
-                      "alwaysShow": null,
-                      "meta": { "title": "menu2菜单", "icon": "#" },
-                      "visible": "0",
-                      "menuType": "C",
-                      "children": null,
-                      "needCache": true,
-                      "domainVisible": false
-                    }
-                  ],
-                  "needCache": true,
-                  "domainVisible": false
+                  "path": "/index",
+                  "name": "home",
+                  "component": "/home/index",
+                  "meta": {
+                    "icon": "HomeFilled",
+                    "title": "首页",
+                    "isLink": "",
+                    "isHide": false,
+                    "isFull": false,
+                    "isAffix": true,
+                    "isKeepAlive": true
+                  }
                 }
               ],
               "needCache": true,
@@ -570,7 +567,10 @@
           "redirect": null,
           "component": "pms/index",
           "alwaysShow": true,
-          "meta": { "title": "系统管理", "icon": "setting" },
+          "meta": {
+            "title": "系统管理",
+            "icon": "setting"
+          },
           "visible": "0",
           "menuType": "M",
           "children": [
@@ -582,7 +582,10 @@
               "redirect": null,
               "component": "Layout",
               "alwaysShow": true,
-              "meta": { "title": "后台管理系统", "icon": "preferences" },
+              "meta": {
+                "title": "后台管理系统",
+                "icon": "preferences"
+              },
               "visible": "0",
               "menuType": "M",
               "children": [
@@ -594,7 +597,10 @@
                   "redirect": null,
                   "component": "system/user/index",
                   "alwaysShow": null,
-                  "meta": { "title": "用户管理", "icon": "peoples" },
+                  "meta": {
+                    "title": "用户管理",
+                    "icon": "peoples"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -609,7 +615,10 @@
                   "redirect": null,
                   "component": "system/userFreeze",
                   "alwaysShow": null,
-                  "meta": { "title": "用户解冻", "icon": "logininfor" },
+                  "meta": {
+                    "title": "用户解冻",
+                    "icon": "logininfor"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -624,7 +633,10 @@
                   "redirect": null,
                   "component": "system/role/index",
                   "alwaysShow": null,
-                  "meta": { "title": "角色管理", "icon": "user" },
+                  "meta": {
+                    "title": "角色管理",
+                    "icon": "user"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -639,7 +651,10 @@
                   "redirect": null,
                   "component": "system/dept/index",
                   "alwaysShow": null,
-                  "meta": { "title": "部门管理", "icon": "cascader" },
+                  "meta": {
+                    "title": "部门管理",
+                    "icon": "cascader"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -654,7 +669,10 @@
                   "redirect": null,
                   "component": "system/menu/index",
                   "alwaysShow": null,
-                  "meta": { "title": "菜单管理", "icon": "component" },
+                  "meta": {
+                    "title": "菜单管理",
+                    "icon": "component"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -669,7 +687,10 @@
                   "redirect": null,
                   "component": "system/post/index",
                   "alwaysShow": null,
-                  "meta": { "title": "岗位管理", "icon": "job" },
+                  "meta": {
+                    "title": "岗位管理",
+                    "icon": "job"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -684,7 +705,10 @@
                   "redirect": null,
                   "component": "system/microFrontEnd/index",
                   "alwaysShow": null,
-                  "meta": { "title": "微前端管理", "icon": "tree" },
+                  "meta": {
+                    "title": "微前端管理",
+                    "icon": "tree"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -699,7 +723,10 @@
                   "redirect": null,
                   "component": "system/application",
                   "alwaysShow": null,
-                  "meta": { "title": "业务系统管理", "icon": "chart" },
+                  "meta": {
+                    "title": "业务系统管理",
+                    "icon": "chart"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -714,7 +741,10 @@
                   "redirect": null,
                   "component": "system/entryManage",
                   "alwaysShow": null,
-                  "meta": { "title": "pad录入管理", "icon": "phone" },
+                  "meta": {
+                    "title": "pad录入管理",
+                    "icon": "phone"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,
@@ -729,7 +759,10 @@
                   "redirect": null,
                   "component": "Layout",
                   "alwaysShow": true,
-                  "meta": { "title": "日志管理", "icon": "log" },
+                  "meta": {
+                    "title": "日志管理",
+                    "icon": "log"
+                  },
                   "visible": "0",
                   "menuType": "M",
                   "children": [
@@ -741,7 +774,10 @@
                       "redirect": null,
                       "component": "system/logManage/operlog",
                       "alwaysShow": null,
-                      "meta": { "title": "操作日志", "icon": "#" },
+                      "meta": {
+                        "title": "操作日志",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -756,7 +792,10 @@
                       "redirect": null,
                       "component": "system/logManage/loginlog",
                       "alwaysShow": null,
-                      "meta": { "title": "登录日志", "icon": "#" },
+                      "meta": {
+                        "title": "登录日志",
+                        "icon": "#"
+                      },
                       "visible": "0",
                       "menuType": "C",
                       "children": null,
@@ -775,7 +814,10 @@
                   "redirect": null,
                   "component": "system/dictConfig",
                   "alwaysShow": null,
-                  "meta": { "title": "字典配置", "icon": "tree-table" },
+                  "meta": {
+                    "title": "字典配置",
+                    "icon": "tree-table"
+                  },
                   "visible": "0",
                   "menuType": "C",
                   "children": null,

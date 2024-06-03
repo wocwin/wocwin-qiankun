@@ -121,7 +121,7 @@ aside {
 
 //main-container全局样式
 .app-container {
-  padding: 20px;
+  padding: 10px;
 }
 
 .components-container {
@@ -197,6 +197,7 @@ aside {
   width: 100%;
   background-color: #ECF0F3;
 }
+
 // 功能块公用样式
 .block_wrap {
   margin-bottom: 16px;
@@ -204,38 +205,73 @@ aside {
   background: #fff;
   border-radius: 4px;
 }
+
 // 主题颜色
 .router-link-active .is-active span {
   color: #fff;
 }
+
 .tags-view-container .tags-view-wrapper .tags-view-item.active {
-  background-color: #355DB4!important;
-  border-color: #355DB4!important;
+  background-color: #355DB4 !important;
+  border-color: #355DB4 !important;
 }
+
 /*******************flex样式****************************/
-.flex-box{ display:-webkit-box;display:-webkit-flex;display: flex;}
-/*************垂直方向左对齐********/
-.flex-ver-left{-webkit-align-items:flex-start;align-items:flex-start;}
-/*************水平方向左对齐********/
-.flex-ver-h-left{justify-content:flex-start;}
-/*************水平方向右对齐********/
-.flex-ver-h-right{justify-content:flex-end;}
-/*************水平垂直居中********/
-.flex-ver{align-items:center;justify-content: center;}
-/*************垂直居中********/
-.flex-ver-v{align-items:center;}
-/*************水平居中********/
-.flex-ver-h{justify-content: center;}
-/*************换行********/
-.flex-wrap{flex-wrap:wrap}
-/*************两端对齐********/
-.flex-between{justify-content:space-between}
-/*******************flex样式结束****************************/
-.dl-horizontal{
-  display:-webkit-box;
-  display:-webkit-flex;
+.flex-box {
+  display: -webkit-box;
+  display: -webkit-flex;
   display: flex;
-  dt{
+}
+
+/*************垂直方向左对齐********/
+.flex-ver-left {
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/*************水平方向左对齐********/
+.flex-ver-h-left {
+  justify-content: flex-start;
+}
+
+/*************水平方向右对齐********/
+.flex-ver-h-right {
+  justify-content: flex-end;
+}
+
+/*************水平垂直居中********/
+.flex-ver {
+  align-items: center;
+  justify-content: center;
+}
+
+/*************垂直居中********/
+.flex-ver-v {
+  align-items: center;
+}
+
+/*************水平居中********/
+.flex-ver-h {
+  justify-content: center;
+}
+
+/*************换行********/
+.flex-wrap {
+  flex-wrap: wrap
+}
+
+/*************两端对齐********/
+.flex-between {
+  justify-content: space-between
+}
+
+/*******************flex样式结束****************************/
+.dl-horizontal {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+
+  dt {
     min-width: 60px;
     text-align: right;
     font-weight: bold;
@@ -243,10 +279,12 @@ aside {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  dd{
+
+  dd {
     margin-inline-start: 20px;
   }
 }
+
 .sidebar-logo-container {
   cursor: pointer;
 }

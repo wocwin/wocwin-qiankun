@@ -7,7 +7,7 @@ export default function(config) {
   // 创建axios实例
   const service = axios.create({
     // axios中请求配置有baseURL选项，表示请求URL公共部分
-    baseURL: process.env.VUE_APP_BASE_API,
+    baseURL: process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : '/api',
     // 超时 b
     timeout: 50000
   })

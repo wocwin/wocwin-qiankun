@@ -12,10 +12,10 @@
 export default {
   name: 'AppMain',
   computed: {
-    cachedViews () {
+    cachedViews() {
       return this.$store.state.tagsView.cachedViews
     },
-    key () {
+    key() {
       return this.$route.path
     }
   }
@@ -27,12 +27,11 @@ export default {
   /* 50= navbar  50  */
   display: flex;
   flex-direction: column;
-  // min-height: calc(100vh - 50px);
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background: #f0f2f5;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .fixed-header + .app-main {
@@ -40,11 +39,6 @@ export default {
 }
 
 .hasTagsView {
-  .app-main {
-    /* 84 = navbar + tags-view = 50 + 34 */
-    // min-height: calc(100vh - 84px);
-  }
-
   .fixed-header + .app-main {
     padding-top: 84px;
   }

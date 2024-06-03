@@ -46,7 +46,7 @@ module.exports = {
     name: 'vue2主应用',
     plugins: isProduction ? [
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      //使用gzip打包
+      // 使用gzip打包
       new CompressionWebpackPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
@@ -61,29 +61,31 @@ module.exports = {
       libraryTarget: 'umd', // 把微应用打包成 umd 库格式
       jsonpFunction: `webpackJsonp_${name}`,
       filename: `[name].[hash].js`,
-      chunkFilename: `[name].[hash].js`,
-    },
+      chunkFilename: `[name].[hash].js`
+    }
   },
   devServer: {
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': '*'
     },
     host: '0.0.0.0',
     port: port,
     open: false,
     proxy: {
-      '^/portal-user': {
-        target: `http://10.0.10.240:8172`, // 开发
+      '^/api': {
+        target: process.env.VUE_APP_BASE_API, // 开发环境
         changeOrigin: true,
         pathRewrite: {
-          '^/portal-user': '/portal-user'
-        }
-      }, '^/portal-sso': {
-        target: `http://10.0.10.240:8171`, // 开发
-        changeOrigin: true,
-        pathRewrite: {
-          '^/portal-sso': '/portal-sso'
+          '^/api': ''
         },
+        '^/admin_api': {
+          target: 'https://mock.mengxuegu.com/mock/65d00eb6351bbd02cf3398e3/api', // wocwin-admin开发环境
+          changeOrigin: true,
+          pathRewrite: {
+            '^/admin_api': ''
+          }
+        },
+
       }
     },
     disableHostCheck: true
