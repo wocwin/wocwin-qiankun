@@ -15,6 +15,7 @@ export interface GlobalState {
   isGrey: boolean;
   isWeak: boolean;
   asideInverted: boolean;
+  isWatermark: boolean;
   isCollapse: boolean;
   breadcrumb: boolean;
   breadcrumbIcon: boolean;
@@ -27,9 +28,10 @@ export interface GlobalState {
 export interface UserState {
   token: string;
   name: string;
+  loginName: String;
   nickName: string;
   userId: null;
-  userInfo: {};
+  userInfo: any;
 }
 
 /* tabsMenuProps */
@@ -48,10 +50,7 @@ export interface TabsState {
 
 /* AuthState */
 export interface AuthState {
-  routeName: string;
-  authButtonList: {
-    [key: string]: string[];
-  };
+  authButtonList: string[];
   authMenuList: Menu.MenuOptions[];
 }
 

@@ -1,30 +1,51 @@
 <template>
-  <t-layout-page class="dept_mange">
-    <t-layout-page-item>
-      <t-query-condition :opts="opts" @submit="conditionEnter" />
-    </t-layout-page-item>
-    <t-layout-page-item>
-      <t-table
-        title="部门管理列表"
-        isCopy
-        :table="state.table"
-        :columns="state.table.columns"
-        row-key="deptId"
-        :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
-        :isShowPagination="false"
-      >
-        <template #toolbar>
-          <el-button type="primary">新增</el-button>
-        </template>
-      </t-table>
-    </t-layout-page-item>
-  </t-layout-page>
+  <t-adaptive-page
+    title="部门管理列表"
+    isCopy
+    isTree
+    :table="state.table"
+    :columns="state.table.columns"
+    :btnPermissions="btnPermissions"
+    row-key="deptId"
+    default-expand-all
+    :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
+    :isShowPagination="false"
+    :opts="opts"
+    @submit="conditionEnter"
+    height="100%"
+  >
+    <template #toolbar>
+      <el-button @click="downloadTemplate" v-hasPermi="'root:web:sys:dept:download'">下载模板</el-button>
+      <el-button type="primary" @click="importExcel" v-hasPermi="'root:web:sys:dept:import'">批量导入</el-button>
+      <el-button @click="exportExcel" v-hasPermi="'root:web:sys:dept:export'">导出</el-button>
+      <el-button type="primary" @click="handleAdd" v-hasPermi="'root:web:sys:dept:add'">新增</el-button>
+    </template>
+  </t-adaptive-page>
 </template>
 
 <script setup lang="tsx" name="departmentManage">
-import deptData from "@/views/system/getData/dept.json";
+import useApi from "@/hooks/useApi";
+import { useAuthStore } from "@/store/modules/auth";
+const authStore = useAuthStore();
+const btnPermissions = authStore.authButtonListGet;
+const { proxy } = useApi();
 const handleDelete = (row: any) => {
   console.log("点击删除", row);
+};
+const edit = (row: any) => {
+  console.log("编辑", row);
+};
+const downloadTemplate = () => {
+  console.log("下载模板");
+};
+const importExcel = () => {
+  console.log("批量导入");
+};
+const exportExcel = () => {
+  console.log("导出");
+};
+const handleAdd = () => {
+  console.log("新增");
 };
 const state: any = reactive({
   queryData: {
@@ -40,7 +61,7 @@ const state: any = reactive({
       { prop: "deptNum", label: "部门编码", minWidth: 180, align: "left" },
       { prop: "erpDeptNum", label: "ERP部门编码", minWidth: 180, align: "left" },
       { prop: "orderNum", label: "排序", width: "60px", align: "left" },
-      { prop: "createTime", label: "创建时间", width: "100px", align: "left" },
+      { prop: "createTime", label: "创建时间", width: "180px", align: "left" },
       {
         prop: "status",
         label: "状态",
@@ -58,19 +79,21 @@ const state: any = reactive({
     ],
     operator: [
       {
-        text: "编辑"
-        // fun: edit
+        text: "编辑",
+        fun: edit,
+        hasPermi: "root:web:sys:dept:alter"
       },
       {
         text: "删除",
-        fun: handleDelete
+        fun: handleDelete,
+        hasPermi: "root:web:sys:dept:del"
       }
     ],
     // 操作列样式
     operatorConfig: {
       fixed: "right", // 固定列表右边（left则固定在左边）
       align: "left",
-      width: "100",
+      width: "140",
       label: "操作"
     }
   }
@@ -93,17 +116,18 @@ const handleStatusChange = (row: any) => {
 };
 // 最终参数获取
 const getQueryData = computed(() => {
-  const { deptName, deptNum } = state.queryData;
+  const { deptName, deptNum } = toRefs(state.queryData);
   return {
-    deptName,
-    deptNum
+    deptName: deptName.value,
+    deptNum: deptNum.value
   };
 });
 // 点击查询按钮
 const conditionEnter = (data: any) => {
-  console.log(1122, data);
+  // console.log(1122, data);
   state.queryData = data;
   console.log("最终参数", getQueryData.value);
+  getData();
 };
 /**
  * 构造树型结构数据
@@ -138,39 +162,10 @@ onMounted(() => {
 });
 // 获取菜单数据
 const getData = async () => {
-  const res = await deptData;
+  // const res = await deptData;
+  const res = await proxy.$api.deptList(getQueryData.value);
   if (res.success) {
     state.table.data = handleTree(res.data, "deptId");
   }
 };
 </script>
-<style lang="scss" scoped>
-.dept_mange {
-  :deep(.t-table) {
-    .el-table__body-wrapper {
-      .el-table__body {
-        .cell {
-          display: flex;
-          align-items: center;
-        }
-      }
-    }
-    .el-table__header-wrapper {
-      .el-table__header {
-        thead {
-          .cell {
-            text-align: left;
-          }
-        }
-      }
-    }
-    .el-table__cell > .cell {
-      padding-left: 14px;
-      padding-right: 20px;
-    }
-  }
-  // ::v-deep .el-input-number--medium {
-  //   line-height: 32px;
-  // }
-}
-</style>

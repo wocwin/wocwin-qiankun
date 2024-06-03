@@ -1,9 +1,9 @@
 <template>
   <div class="tool-bar-ri">
     <div class="header-icon">
-      <el-tooltip content="页面刷新" effect="dark" placement="bottom">
+      <!-- <el-tooltip content="页面刷新" effect="dark" placement="bottom">
         <i @click="refresh" :class="'iconfont icon-refresh'" class="toolBar-icon"></i>
-      </el-tooltip>
+      </el-tooltip> -->
       <Language id="language" />
       <SearchMenu id="searchMenu" />
       <el-tooltip content="主题切换" effect="dark" placement="bottom">
@@ -13,13 +13,12 @@
         <Fullscreen id="fullscreen" />
       </el-tooltip>
     </div>
-    <span class="username">{{ username }}</span>
+    <span class="username">{{ loginName }}</span>
     <Avatar />
   </div>
 </template>
 
 <script setup lang="ts">
-import { inject, computed } from "vue";
 import { useUserStore } from "@/store/modules/user";
 import Language from "./components/Language.vue";
 import SearchMenu from "./components/SearchMenu.vue";
@@ -28,14 +27,14 @@ import Fullscreen from "./components/Fullscreen.vue";
 import Avatar from "./components/Avatar.vue";
 
 const userStore = useUserStore();
-const username = computed(() => userStore.name || "wocwin");
+const loginName = computed(() => userStore.loginName);
 // refresh current page
-const reload: Function = inject("reload") as Function;
-const refresh = () => {
-  setTimeout(() => {
-    reload();
-  }, 0);
-};
+// const reload: Function = inject("reload") as Function;
+// const refresh = () => {
+//   setTimeout(() => {
+//     reload();
+//   }, 0);
+// };
 </script>
 
 <style scoped lang="scss">

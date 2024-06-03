@@ -59,6 +59,7 @@ const opts = computed(() => {
       label: "t-select单选使用",
       comp: "t-select",
       defaultVal: "W1",
+      isSelfCom: true,
       bind: {
         optionSource: state.sexList
       }
@@ -75,9 +76,10 @@ const opts = computed(() => {
       placeholder: "请多选",
       span: 2,
       comp: "t-select",
+      isSelfCom: true,
       bind: {
-        valueKey: "id",
-        labelKey: "name",
+        valueCustom: "id",
+        labelCustom: "name",
         multiple: true,
         optionSource: state.multipleList
       }
@@ -100,16 +102,15 @@ const opts = computed(() => {
 });
 // 最终参数获取
 const getQueryData = computed(() => {
-  const { userName, phonenumber, workshopNum, date, date1, workshopNum2 } = state.queryData;
-  console.log(444, userName, phonenumber, date1);
+  const { userName, phonenumber, workshopNum, date, date1, workshopNum2 } = toRefs(state.queryData);
   return {
-    userName,
-    workshopNum,
-    phonenumber,
-    workshopNum2,
-    date1,
-    beginDate: date && date[0] ? date[0] : null,
-    endDate: date && date[1] ? date[1] : null
+    userName: userName.value,
+    workshopNum: workshopNum.value,
+    phonenumber: phonenumber.value,
+    workshopNum2: workshopNum2.value,
+    date1: date1.value,
+    beginDate: date.value && date.value[0] ? date.value[0] : null,
+    endDate: date.value && date.value[1] ? date.value[1] : null
   };
 });
 // 查询条件change事件

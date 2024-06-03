@@ -104,21 +104,30 @@ const handleQuery = () => {
   #container {
     width: 100%;
     height: 100%;
+    // height: 100vh;
+    filter: invert(100%) hue-rotate(180deg);
+    -webkit-filter: invert(100%) hue-rotate(180deg);
+    mix-blend-mode: exclusion;
   }
   .input-card {
     position: absolute;
-    background-color: white;
+    background-color: var(--el-menu-bg-color);
     max-height: 90%;
     overflow-y: auto;
     top: 30px;
     left: 30px;
     padding: 10px;
     width: 400px;
+    box-shadow: 1px 4px 12px 10px var(--el-menu-bg-color);
+    label {
+      color: var(--el-menu-text-color);
+    }
     .input-item {
       margin: 10px 0;
       display: flex;
       align-items: center;
       .input-item-text {
+        color: var(--el-menu-text-color);
         display: inline-block;
         width: 150px;
         text-align: right;

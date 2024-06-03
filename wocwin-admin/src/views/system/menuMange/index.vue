@@ -3,6 +3,8 @@
     class="menu_mange"
     title="菜单管理页面"
     row-key="path"
+    isTree
+    :btnPermissions="btnPermissions"
     :table="state.table"
     :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
     :columns="state.table.columns"
@@ -12,15 +14,23 @@
     height="100%"
   >
     <template #toolbar>
-      <el-button type="primary">新增</el-button>
+      <el-button type="primary" v-hasPermi="'root:web:sys:menu:import'" @click="importExcel">同步</el-button>
+      <el-tooltip class="item" effect="dark" content="请选择父级menuId导出" placement="top">
+        <el-button type="danger" v-hasPermi="'root:web:sys:menu:export'" @click="exportExcel">导出</el-button>
+      </el-tooltip>
+      <el-button type="primary" @click="createHandle" v-hasPermi="'root:web:sys:menu:add'">新增</el-button>
     </template>
   </t-adaptive-page>
 </template>
 
 <script setup lang="tsx" name="menuMange">
-import menuData from "@/store/modules/getData/menu.json";
 import { ElMessageBox, ElMessage } from "element-plus";
 import TIcon from "./TIcon.vue";
+import useApi from "@/hooks/useApi";
+import { useAuthStore } from "@/store/modules/auth";
+const authStore = useAuthStore();
+const btnPermissions = authStore.authButtonListGet;
+const { proxy } = useApi();
 const handleDelete = (row: any) => {
   console.log("点击删除", row);
   ElMessageBox.confirm("此操作将永久删除该文件, 是否继续?", "提示", {
@@ -38,6 +48,21 @@ const handleDelete = (row: any) => {
         message: "已取消删除"
       });
     });
+};
+const edit = (row: any) => {
+  console.log("编辑", row);
+};
+const handleAdd = (row: any) => {
+  console.log("表格内新增", row);
+};
+const importExcel = () => {
+  console.log("同步");
+};
+const exportExcel = () => {
+  console.log("导出");
+};
+const createHandle = () => {
+  console.log("新增");
 };
 const state: any = reactive({
   queryData: {
@@ -69,16 +94,19 @@ const state: any = reactive({
     ],
     operator: [
       {
-        text: "新增"
-        // fun: handleAdd
+        text: "新增",
+        fun: handleAdd,
+        hasPermi: "root:web:sys:menu:add"
       },
       {
-        text: "编辑"
-        // fun: edit
+        text: "编辑",
+        fun: edit,
+        hasPermi: "root:web:sys:menu:alter"
       },
       {
         text: "删除",
-        fun: handleDelete
+        fun: handleDelete,
+        hasPermi: "root:web:sys:menu:del"
       }
     ],
     // 操作列样式
@@ -105,10 +133,10 @@ const opts = computed(() => {
 });
 // 最终参数获取
 const getQueryData = computed(() => {
-  const { title, path } = state.queryData;
+  const { title, path } = toRefs(state.queryData);
   return {
-    title,
-    path
+    title: title.value,
+    path: path.value
   };
 });
 // 点击查询按钮
@@ -122,7 +150,8 @@ onMounted(() => {
 });
 // 获取菜单数据
 const getMenuData = async () => {
-  const res = await menuData;
+  const res = await proxy.$api.getRouters();
+  // console.log(999, res);
   if (res.success) {
     state.table.data = res.data;
   }
@@ -131,14 +160,6 @@ const getMenuData = async () => {
 <style lang="scss" scoped>
 .menu_mange {
   :deep(.t-table) {
-    .el-table__body-wrapper {
-      .el-table__body {
-        .cell {
-          display: flex;
-          align-items: center;
-        }
-      }
-    }
     .el-table__header-wrapper {
       .el-table__header {
         thead {
@@ -153,8 +174,5 @@ const getMenuData = async () => {
       padding-right: 20px;
     }
   }
-  // ::v-deep .el-input-number--medium {
-  //   line-height: 32px;
-  // }
 }
 </style>

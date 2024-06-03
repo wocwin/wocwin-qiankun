@@ -18,7 +18,7 @@ export const useGlobalStore = defineStore({
     // 主题颜色
     primary: DEFAULT_PRIMARY,
     // 深色模式
-    isDark: false,
+    isDark: true,
     // 灰色模式
     isGrey: false,
     // 色弱模式
@@ -36,7 +36,9 @@ export const useGlobalStore = defineStore({
     // 标签页图标
     tabsIcon: false,
     // 页脚
-    footer: true
+    footer: true,
+    // 水印
+    isWatermark: true
   }),
   getters: {},
   actions: {

@@ -1,6 +1,5 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
 import { resolve } from "path";
-import { wrapperEnv } from "./build/getEnv";
 import { createVitePlugins } from "./build/plugins";
 import pkg from "./package.json";
 import dayjs from "dayjs";
@@ -13,7 +12,7 @@ const __APP_INFO__ = {
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
-  const viteEnv = wrapperEnv(env);
+  // console.log("env", env);
 
   return {
     base: "/wocwin-admin/",
@@ -45,20 +44,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       cors: true,
       https: false,
       proxy: {
-        "^/mes": {
-          target: `http://10.0.10.243:5000/mesv2/`,
+        "^/admin_api": {
+          target: env.VITE_APP_BASE_API,
           changeOrigin: true,
-          rewrite: p => p.replace(/^\/mes/, "")
-        },
-        "^/portal-user": {
-          target: `http://10.0.10.240:8172`,
-          changeOrigin: true,
-          rewrite: p => p.replace(/^\/portal-user/, "/portal-user")
-        },
-        "^/portal-sso": {
-          target: `http://10.0.10.240:8171`,
-          changeOrigin: true,
-          rewrite: p => p.replace(/^\/portal-sso/, "/portal-sso")
+          rewrite: p => p.replace(/^\/admin_api/, "")
         }
       }
     },
@@ -85,9 +74,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       rollupOptions: {
         output: {
           // js最小拆包
-          // manualChunks: id => {
-          //   if (id.includes("node_modules")) return "vendor";
-          // },
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return id.toString().split("node_modules/")[1].split("/")[1].toString();
+            }
+          },
           // 静态资源分类和包装
           chunkFileNames: "assets/js/[name]-[hash].js",
           entryFileNames: "assets/js/[name]-[hash].js",

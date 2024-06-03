@@ -60,11 +60,11 @@
       <span>灰色模式</span>
       <el-switch v-model="isGrey" @change="changeGreyOrWeak('grey', !!$event)" />
     </div>
-    <div class="theme-item">
+    <div class="theme-item mb40">
       <span>色弱模式</span>
       <el-switch v-model="isWeak" @change="changeGreyOrWeak('weak', !!$event)" />
     </div>
-    <div class="theme-item mb40">
+    <!-- <div class="theme-item mb40">
       <span>
         侧边栏反转色
         <el-tooltip effect="dark" content="该属性目前只在纵向布局模式下生效" placement="top">
@@ -72,7 +72,7 @@
         </el-tooltip>
       </span>
       <el-switch v-model="asideInverted" :disabled="layout !== 'vertical'" @change="setAsideTheme" />
-    </div>
+    </div> -->
 
     <!-- 界面设置 -->
     <el-divider class="divider" content-position="center">
@@ -99,6 +99,10 @@
       <span>标签栏图标</span>
       <el-switch v-model="tabsIcon" />
     </div>
+    <div class="theme-item">
+      <span>是否显示水印</span>
+      <el-switch v-model="isWatermark" />
+    </div>
   </el-drawer>
 </template>
 
@@ -115,12 +119,13 @@ import SwitchDark from "@/components/SwitchDark/index.vue";
 const { changePrimary, changeGreyOrWeak, setAsideTheme } = useTheme();
 
 const globalStore = useGlobalStore();
-const { layout, primary, isGrey, isWeak, asideInverted, isCollapse, breadcrumb, breadcrumbIcon, tabs, tabsIcon } =
+const { layout, primary, isGrey, isWeak, isCollapse, breadcrumb, breadcrumbIcon, tabs, tabsIcon, isWatermark } =
   storeToRefs(globalStore);
 
 // 预定义主题颜色
 const colorList = [
   DEFAULT_PRIMARY,
+  "#142969",
   "#daa96e",
   "#0c819f",
   "#409eff",
@@ -128,8 +133,7 @@ const colorList = [
   "#ff5c93",
   "#e74c3c",
   "#fd726d",
-  "#f39c12",
-  "#9b59b6"
+  "#f39c12"
 ];
 
 // 设置布局方式

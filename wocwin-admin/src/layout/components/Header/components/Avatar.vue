@@ -48,7 +48,6 @@ import InfoDialog from "./InfoDialog.vue";
 import PasswordDialog from "./PasswordDialog.vue";
 
 const userStore = useUserStore();
-
 // 退出登录
 const logout = () => {
   ElMessageBox.confirm("您是否确认退出登录?", "温馨提示", {
@@ -57,7 +56,7 @@ const logout = () => {
     type: "warning"
   }).then(async () => {
     // 1.执行退出登录接口
-    userStore.FedLogOut();
+    await userStore.LogOut();
     window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/wocwin-qiankun/" : "/wocwin-admin/";
     ElMessage.success("退出登录成功！");
   });
