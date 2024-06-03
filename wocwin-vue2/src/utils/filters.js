@@ -1,4 +1,3 @@
-
 /**
  * 如果时间是复数，则显示复数标签
  * @param {number} time
@@ -6,24 +5,24 @@
  * @return {string}
  */
 function pluralize(time, label) {
-  if (time === 1) {
-    return time + label
-  }
-  return time + label + 's'
+	if (time === 1) {
+		return time + label
+	}
+	return time + label + 's'
 }
 
 /**
  * @param {number} time
  */
 export function timeAgo(time) {
-  const between = Date.now() / 1000 - Number(time)
-  if (between < 3600) {
-    return pluralize(~~(between / 60), ' minute')
-  } else if (between < 86400) {
-    return pluralize(~~(between / 3600), ' hour')
-  } else {
-    return pluralize(~~(between / 86400), ' day')
-  }
+	const between = Date.now() / 1000 - Number(time)
+	if (between < 3600) {
+		return pluralize(~~(between / 60), ' minute')
+	} else if (between < 86400) {
+		return pluralize(~~(between / 3600), ' hour')
+	} else {
+		return pluralize(~~(between / 86400), ' day')
+	}
 }
 /**
  * 下拉数据回显中文过滤器
@@ -33,10 +32,10 @@ export function timeAgo(time) {
  * @param {String} label  数据源的label字段（默认：dictLabel）
  */
 export function constantEscape(value, list, key, label) {
-  const res = list.find((item) => {
-    return item[key] === value
-  })
-  return res && res[label]
+	const res = list.find(item => {
+		return item[key] === value
+	})
+	return res && res[label]
 }
 /**
  * Number formatting
@@ -45,20 +44,20 @@ export function constantEscape(value, list, key, label) {
  * @param {number} digits
  */
 export function numberFormatter(num, digits) {
-  const si = [
-    { value: 1E18, symbol: 'E' },
-    { value: 1E15, symbol: 'P' },
-    { value: 1E12, symbol: 'T' },
-    { value: 1E9, symbol: 'G' },
-    { value: 1E6, symbol: 'M' },
-    { value: 1E3, symbol: 'k' }
-  ]
-  for (let i = 0; i < si.length; i++) {
-    if (num >= si[i].value) {
-      return (num / si[i].value + 0.1).toFixed(digits).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, '$1') + si[i].symbol
-    }
-  }
-  return num.toString()
+	const si = [
+		{ value: 1e18, symbol: 'E' },
+		{ value: 1e15, symbol: 'P' },
+		{ value: 1e12, symbol: 'T' },
+		{ value: 1e9, symbol: 'G' },
+		{ value: 1e6, symbol: 'M' },
+		{ value: 1e3, symbol: 'k' }
+	]
+	for (let i = 0; i < si.length; i++) {
+		if (num >= si[i].value) {
+			return (num / si[i].value + 0.1).toFixed(digits).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, '$1') + si[i].symbol
+		}
+	}
+	return num.toString()
 }
 
 /**
@@ -66,7 +65,7 @@ export function numberFormatter(num, digits) {
  * @param {number} num
  */
 export function toThousandFilter(num) {
-  return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+	return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
 }
 
 /**
@@ -75,31 +74,31 @@ export function toThousandFilter(num) {
  * @param {number} n 保留小数位
  */
 export function currencyFilter(num, n) {
-  n = n > 0 && n <= 20 ? n : 2
-  if (num || num === 0) {
-    num = parseFloat((num + '').replace(/^\d\.-/g, '')).toFixed(n) + ''
-    let l = ''
-    let r = ''
-    let y = false
-    if (num.indexOf('-') !== -1) {
-      l = num.split('-')[1].split('.')[0].split('').reverse()
-      r = num.split('-')[1].split('.')[1]
-      if (num.split('-')[0] === '') {
-        y = true
-      }
-    } else {
-      l = num.split('.')[0].split('').reverse()
-      r = num.split('.')[1]
-    }
-    let t = ''
-    for (let i = 0; i < l.length; i++) {
-      t += l[i] + ((i + 1) % 3 === 0 && (i + 1) !== l.length ? ',' : '')
-    }
-    return num ? (y ? ('￥ -' + t.split('').reverse().join('') + '.' + r) : ('￥ ' + t.split('').reverse().join('') + '.' + r)) : ''
-  } else {
-    return ''
-  }
-  // }
+	n = n > 0 && n <= 20 ? n : 2
+	if (num || num === 0) {
+		num = parseFloat((num + '').replace(/^\d\.-/g, '')).toFixed(n) + ''
+		let l = ''
+		let r = ''
+		let y = false
+		if (num.indexOf('-') !== -1) {
+			l = num.split('-')[1].split('.')[0].split('').reverse()
+			r = num.split('-')[1].split('.')[1]
+			if (num.split('-')[0] === '') {
+				y = true
+			}
+		} else {
+			l = num.split('.')[0].split('').reverse()
+			r = num.split('.')[1]
+		}
+		let t = ''
+		for (let i = 0; i < l.length; i++) {
+			t += l[i] + ((i + 1) % 3 === 0 && i + 1 !== l.length ? ',' : '')
+		}
+		return num ? (y ? '￥ -' + t.split('').reverse().join('') + '.' + r : '￥ ' + t.split('').reverse().join('') + '.' + r) : ''
+	} else {
+		return ''
+	}
+	// }
 }
 
 /**
@@ -107,40 +106,43 @@ export function currencyFilter(num, n) {
  * @param {number} num 被转换数字
  */
 export function digitUppercase(num) {
-  const reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}$/
-  if (!reg.test(num)) {
-    return '请输入正确的金额格式'
-  } else {
-    let fraction = ['角', '分']
-    let digit = [
-      '零', '壹', '贰', '叁', '肆',
-      '伍', '陆', '柒', '捌', '玖'
-    ]
-    let unit = [
-      ['元', '万', '亿', '兆'],
-      ['', '拾', '佰', '仟']
-    ]
-    let head = num < 0 ? '欠' : ''
-    num = Math.abs(num)
-    let s = ''
-    fraction.forEach((item, index) => {
-      s += (digit[Math.floor(num * 10 * Math.pow(10, index)) % 10] + item).replace(/零./, '')
-    })
-    // for (let i = 0; i < fraction.length; i++) {
-    //   s += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '')
-    // }
-    s = s || '整'
-    num = Math.floor(num)
-    for (let i = 0; i < unit[0].length && num > 0; i++) {
-      let p = ''
-      for (let j = 0; j < unit[1].length && num > 0; j++) {
-        p = digit[num % 10] + unit[1][j] + p
-        num = Math.floor(num / 10)
-      }
-      s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s
-    }
-    return head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整')
-  }
+	const reg = /((^[1-9]\d*)|^0)(\.\d{0,2}){0,1}$/
+	if (!reg.test(num)) {
+		return '请输入正确的金额格式'
+	} else {
+		let fraction = ['角', '分']
+		let digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
+		let unit = [
+			['元', '万', '亿', '兆'],
+			['', '拾', '佰', '仟']
+		]
+		let head = num < 0 ? '欠' : ''
+		num = Math.abs(num)
+		let s = ''
+		fraction.forEach((item, index) => {
+			s += (digit[Math.floor(num * 10 * Math.pow(10, index)) % 10] + item).replace(/零./, '')
+		})
+		// for (let i = 0; i < fraction.length; i++) {
+		//   s += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '')
+		// }
+		s = s || '整'
+		num = Math.floor(num)
+		for (let i = 0; i < unit[0].length && num > 0; i++) {
+			let p = ''
+			for (let j = 0; j < unit[1].length && num > 0; j++) {
+				p = digit[num % 10] + unit[1][j] + p
+				num = Math.floor(num / 10)
+			}
+			s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s
+		}
+		return (
+			head +
+			s
+				.replace(/(零.)*零元/, '元')
+				.replace(/(零.)+/g, '零')
+				.replace(/^整$/, '零元整')
+		)
+	}
 }
 
 /**
@@ -148,8 +150,8 @@ export function digitUppercase(num) {
  * @param {number} num
  */
 export function percentFilter(num) {
-  let percentStr = num ? num.toString() + '%' : '0'
-  return percentStr
+	let percentStr = num ? num.toString() + '%' : '0'
+	return percentStr
 }
 
 /**
@@ -157,7 +159,7 @@ export function percentFilter(num) {
  * @param {String} string
  */
 export function uppercaseFirst(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+	return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 /**
@@ -165,20 +167,20 @@ export function uppercaseFirst(string) {
  * @param {String} time
  */
 export function timeFormatFilter(time) {
-  let date = new Date(time)
-  let year = date.getFullYear()
-  let month = date.getMonth() + 1
-  let day = date.getDate()
-  let h = date.getHours()
-  let minute = date.getMinutes()
-  let second = date.getSeconds()
-  month = month < 10 ? '0' + month : month
-  day = day < 10 ? '0' + day : day
-  h = h < 10 ? ('0' + h) : h
-  minute = minute < 10 ? ('0' + minute) : minute
-  second = second < 10 ? ('0' + second) : second
-  date = year + '-' + month + '-' + day + ' ' + h + ':' + minute + ':' + second
-  return date
+	let date = new Date(time)
+	let year = date.getFullYear()
+	let month = date.getMonth() + 1
+	let day = date.getDate()
+	let h = date.getHours()
+	let minute = date.getMinutes()
+	let second = date.getSeconds()
+	month = month < 10 ? '0' + month : month
+	day = day < 10 ? '0' + day : day
+	h = h < 10 ? '0' + h : h
+	minute = minute < 10 ? '0' + minute : minute
+	second = second < 10 ? '0' + second : second
+	date = year + '-' + month + '-' + day + ' ' + h + ':' + minute + ':' + second
+	return date
 }
 
 /**
@@ -186,14 +188,14 @@ export function timeFormatFilter(time) {
  * @param {String} time
  */
 export function dateFormatFilter(time) {
-  let date = new Date(time)
-  let year = date.getFullYear()
-  let month = date.getMonth() + 1
-  let day = date.getDate()
-  month = month < 10 ? '0' + month : month
-  day = day < 10 ? '0' + day : day
-  date = year + '-' + month + '-' + day
-  return date
+	let date = new Date(time)
+	let year = date.getFullYear()
+	let month = date.getMonth() + 1
+	let day = date.getDate()
+	month = month < 10 ? '0' + month : month
+	day = day < 10 ? '0' + day : day
+	date = year + '-' + month + '-' + day
+	return date
 }
 
 /**
@@ -201,9 +203,9 @@ export function dateFormatFilter(time) {
  * @param {String} dateStr
  */
 export function dateStrFormat(dateStr) {
-  if (dateStr !== undefined && dateStr !== null && dateStr !== '') {
-    return dateStr.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')
-  } else {
-    return ''
-  }
+	if (dateStr !== undefined && dateStr !== null && dateStr !== '') {
+		return dateStr.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')
+	} else {
+		return ''
+	}
 }

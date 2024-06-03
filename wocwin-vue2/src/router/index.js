@@ -18,80 +18,78 @@ Vue.use(Router)
 
 // 公共路由
 export const constantRoutes = window.__POWERED_BY_QIANKUN__
-  ? [
-    {
-      path: '/login',
-      name: 'login',
-      component: login,
-      hidden: true,
-      meta: {
-        rootPage: true,
-        noCache: true
-      }
-    },
-    {
-      path: '/redirect',
-      name: 'redirect',
-      component: Layout,
-      hidden: true,
-      children: [
-        {
-          path: ':path(.*)',
-          name: 'redirectPage',
-          component: redirect,
-          meta: {
-            noCache: true
-          }
-        }
-      ]
-    },
-    mapRouter,
-    complexRouter,
-    commonRouter,
-    TTableRouter,
-    TFormRouter,
-    TQueryConditionRouter
-  ]
-  : [
-    {
-      path: '/redirect',
-      component: Layout,
-      hidden: true,
-      children: [{
-        path: '/redirect/:path(.*)',
-        component: () =>
-          import('@/views/redirect')
-      }]
-    },
-    {
-      path: '/login',
-      component: () =>
-        import('@/views/login'),
-      hidden: true
-    },
-    {
-      path: '/404',
-      component: () =>
-        import('@/views/error/404'),
-      hidden: true
-    },
-    {
-      path: '/401',
-      component: () =>
-        import('@/views/error/401'),
-      hidden: true
-    },
-    mapRouter,
-    complexRouter,
-    commonRouter,
-    TTableRouter,
-    TFormRouter,
-    TQueryConditionRouter
-  ]
+	? [
+			{
+				path: '/login',
+				name: 'login',
+				component: login,
+				hidden: true,
+				meta: {
+					rootPage: true,
+					noCache: true
+				}
+			},
+			{
+				path: '/redirect',
+				name: 'redirect',
+				component: Layout,
+				hidden: true,
+				children: [
+					{
+						path: ':path(.*)',
+						name: 'redirectPage',
+						component: redirect,
+						meta: {
+							noCache: true
+						}
+					}
+				]
+			},
+			mapRouter,
+			complexRouter,
+			commonRouter,
+			TTableRouter,
+			TFormRouter,
+			TQueryConditionRouter
+	  ]
+	: [
+			{
+				path: '/redirect',
+				component: Layout,
+				hidden: true,
+				children: [
+					{
+						path: '/redirect/:path(.*)',
+						component: () => import('@/views/redirect')
+					}
+				]
+			},
+			{
+				path: '/login',
+				component: () => import('@/views/login'),
+				hidden: true
+			},
+			{
+				path: '/404',
+				component: () => import('@/views/error/404'),
+				hidden: true
+			},
+			{
+				path: '/401',
+				component: () => import('@/views/error/401'),
+				hidden: true
+			},
+			mapRouter,
+			complexRouter,
+			commonRouter,
+			TTableRouter,
+			TFormRouter,
+			TQueryConditionRouter
+	  ]
 
 const router = new Router({
-  base: '/wocwin-vue2/',
-  routes: constantRoutes,
-  mode: 'history'
+	base: '/wocwin-vue2/',
+	routes: constantRoutes,
+	mode: 'history'
 })
 export default router

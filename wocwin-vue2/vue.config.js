@@ -11,11 +11,6 @@ function resolve(dir) {
 }
 
 const name = defaultTitle || '常规vue2模板' // 标题
-
-
-// vue.config.js 配置说明
-// 官方vue.config.js 参考文档 https://cli.vuejs.org/zh/config/#css-loaderoptions
-// 这里只列一部分，具体配置参考文档
 module.exports = {
   // 部署生产环境和开发环境下的URL。
   publicPath: '/wocwin-vue2/',
@@ -32,6 +27,15 @@ module.exports = {
     },
     port: 9100,
     open: false,
+    proxy: {
+      '^/api': {
+        target: process.env.VUE_APP_BASE_API, // 开发环境
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     disableHostCheck: true
   },
   configureWebpack: {
@@ -45,6 +49,11 @@ module.exports = {
       })
     ] : [],
     name: name,
+    performance: {
+      // 打包文件大小配置
+      maxEntrypointSize: 5000000,
+      maxAssetSize: 3000000
+    },
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.esm.js',

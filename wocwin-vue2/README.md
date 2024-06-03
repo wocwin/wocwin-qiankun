@@ -1,23 +1,49 @@
-## vue2 常规后台管理系统模板
+# wocwin-v2 项目
+
+> 是基于 Vue2、javaScript、webpack、vuex、Element-ui 开源的一套后台管理模板
+>
+> 此项目集成了微前端 qiankun（即可以当做一个子应用）
+
+
+## 在线预览
+
+- Link：<https://wocwin.github.io/wocwin-v2/>
+> 账号：wocwin ; user  密码都是：123456
+
+## 代码仓库
+
+- GitHub：<https://github.com/wocwin/wocwin-v2>
+- Gitee：<https://gitee.com/wocwin/wocwin-v2>
+
+## 项目功能
+
+- 使用了基于 [Element-ui 二次封装 t-ui 组件](https://github.com/wocwin/t-ui) ，里面有常用的 table、条件查询、form 表单、下拉选择组件等
+- 使用 vue-router 进行路由权限拦截、路由懒加载
+- 使用 KeepAlive 对页面进行缓存，支持多级嵌套页面缓存
+- 使用 Prettier 统一格式化代码，集成 Eslint 代码校验规范
+- 项目支持菜单按钮权限（wocwin:可以看见所有，user:无法看见大屏、高德地图菜单及部分系统管理的操作按钮）。
+
+### 安装使用
+
 
 ```shell script
+# Gitee
+git clone https://gitee.com/wocwin/wocwin-v2.git
+# GitHub
+git clone https://github.com/wocwin/wocwin-v2.git
 
 # 安装依赖
-
 npm install
 
 # 启动服务
 npm run serve
-```
 
-## 发布
-
-```shell script
-# 构建开发环境
-npm run dev
-
-# 构建生产环境
+# build
 npm run prod
+
+# prettier 格式化代码
+npm run lint:prettier
+
 ```
 
 ## [Git 提交规范](https://npmmirror.com/package/dh-scm/v/0.1.26)

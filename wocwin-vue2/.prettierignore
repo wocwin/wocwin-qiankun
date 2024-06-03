@@ -1,0 +1,14 @@
+/dist/*
+.local
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+stats.html
+*.md
+*.scss
+*.woff
+*.ttf
+index.html
