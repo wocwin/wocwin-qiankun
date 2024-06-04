@@ -7,7 +7,10 @@ import { useUserStore } from "@/store/modules/user";
 export default (config: any) => {
   // 创建axios实例
   const service: any = axios.create({
-    baseURL: import.meta.env.VITE_APP_ENV === "production" ? (import.meta.env.VITE_APP_BASE_API as any) : "/api",
+    baseURL:
+      import.meta.env.VITE_APP_ENV === "production"
+        ? (import.meta.env.VITE_APP_BASE_API as any)
+        : "https://mock.mengxuegu.com/mock/65d00eb6351bbd02cf3398e3/api",
     // 超时
     timeout: 50000
   });
@@ -46,7 +49,7 @@ export default (config: any) => {
         }).then(async () => {
           // 调用退出登录接口
           await useUserStore().LogOut();
-          window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/wocwin-qiankun/" : "/wocwin-admin/";
+          window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/" : "/wocwin-admin/";
         });
       } else if (code !== 200) {
         ElMessage({
