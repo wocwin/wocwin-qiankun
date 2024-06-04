@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-logo-container" :class="{'collapse':collapse}">
+  <div class="sidebar-logo-container" :class="{ 'collapse': collapse }">
     <transition name="sidebarLogoFade">
       <div v-if="collapse" key="collapse" class="sidebar-logo-link" @click="goIndex">
         <img v-if="logo" :src="logo" :class="['sidebar-logo']" />
@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     goIndex() {
-      window.location.href = '/'
+      window.location.href = process.env.NODE_ENV === 'production' ? '/wocwin-qiankun/':'/'
     }
   }
 }

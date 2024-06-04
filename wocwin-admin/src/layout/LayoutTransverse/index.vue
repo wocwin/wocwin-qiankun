@@ -54,7 +54,7 @@ const handleClickMenu = (subItem: Menu.MenuOptions) => {
   router.push(subItem.path);
 };
 const goIndex = () => {
-  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/" : "/wocwin-admin/";
+  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? import.meta.env.VITE_APP_ENV === "production"?"/wocwin-qiankun/":"/" : "/wocwin-admin/";
 };
 </script>
 

@@ -83,7 +83,7 @@ export default {
 				type: 'warning'
 			}).then(() => {
 				this.$store.dispatch('FedLogOut').then(() => {
-					window.location.href = window.__POWERED_BY_QIANKUN__ ? '/' : '/wocwin-vue2/'
+					window.location.href = window.__POWERED_BY_QIANKUN__ ? process.env.NODE_ENV === 'production' ? '/wocwin-qiankun/':'/' : '/wocwin-vue2/'
 				})
 			})
 		}

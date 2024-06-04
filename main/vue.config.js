@@ -7,7 +7,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
 // 这里只列一部分，具体配置参考文档
 module.exports = {
-  publicPath: '/',
+  publicPath: isProduction?'/wocwin-qiankun/':'/',
   outputDir: '../dist',
   lintOnSave: false,
   productionSourceMap: false,

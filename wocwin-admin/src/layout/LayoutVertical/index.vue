@@ -48,7 +48,7 @@ const isCollapse = computed(() => globalStore.isCollapse);
 const menuList = computed(() => authStore.showMenuListGet);
 const activeMenu = computed(() => (route.meta.activeMenu ? route.meta.activeMenu : route.path) as string);
 const goIndex = () => {
-  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? "/" : "/wocwin-admin/";
+  window.location.href = qiankunWindow.__POWERED_BY_QIANKUN__ ? import.meta.env.VITE_APP_ENV === "production"?"/wocwin-qiankun/":"/" : "/wocwin-admin/";
 };
 </script>
 

@@ -160,7 +160,7 @@ export default {
           if (!window.__POWERED_BY_QIANKUN__) {
             location.reload()
           } else {
-            window.location.href = '/'
+            window.location.href = process.env.NODE_ENV === 'production' ? '/wocwin-qiankun/':'/'
           }
         })
       })
@@ -183,7 +183,7 @@ export default {
               // 为了重新实例化vue-router对象 避免bug
               location.reload()
             } else {
-              window.location.href = '/'
+              window.location.href = process.env.NODE_ENV === 'production' ? '/wocwin-qiankun/':'/'
             }
           })
         }

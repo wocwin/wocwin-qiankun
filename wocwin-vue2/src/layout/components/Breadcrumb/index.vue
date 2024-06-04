@@ -73,7 +73,7 @@ export default {
 			if (!window.__POWERED_BY_QIANKUN__) {
 				this.$router.push({ path: '/' })
 			} else {
-				window.location.href = '/'
+				window.location.href = process.env.NODE_ENV === 'production' ? '/wocwin-qiankun/':'/'
 			}
 		}
 	}
