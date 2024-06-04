@@ -166,7 +166,7 @@ export default {
               // 为了重新实例化vue-router对象 避免bug
               location.reload()
             } else {
-              window.location.href = '/wocwin-qiankun/'
+              window.location.href = '/'
             }
           })
         }
@@ -201,7 +201,7 @@ export default {
           if (!window.__POWERED_BY_QIANKUN__) {
             location.reload()
           } else {
-            window.location.href = '/wocwin-qiankun/'
+            window.location.href = '/'
           }
         })
       })

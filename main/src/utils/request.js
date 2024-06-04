@@ -51,7 +51,7 @@ export default function(config) {
             // 为了重新实例化vue-router对象 避免bug
             location.reload()
           } else {
-            window.location.href = '/wocwin-qiankun/'
+            window.location.href = '/'
           }
         })
       })

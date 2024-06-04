@@ -18,7 +18,7 @@ function isPassword(password) {
   const reg = /^(?=.*?\d+.*?)(?=.*[A-z].*?)[\da-zA-Z\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E]{6,20}$/
   return reg.test(password)
 }
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // 解决三级菜单页面缓存问题
   if (to.matched && to.matched.length > 1) {
     for (let i = 0; i < to.matched.length; i++) {
@@ -36,6 +36,7 @@ router.beforeEach((to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
+      // await store.dispatch('GetMicroApp')
       if (store.getters.permission_sysMenu.length === 0) { // 路由信息是不是组装完
         store.dispatch('GetInfo').then(res => {
           // 拉取user_info

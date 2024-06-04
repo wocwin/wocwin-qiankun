@@ -34,15 +34,15 @@ Vue.prototype.$api = api
 Vue.prototype.$constant = GlobalConstant // 静态字典
 Vue.prototype.$resetMessage = message // 防止重复点击重复弹出message弹框
 
-Vue.prototype.msgSuccess = function(msg) {
+Vue.prototype.msgSuccess = function (msg) {
   this.$message({ showClose: true, message: msg, type: 'success' })
 }
 
-Vue.prototype.msgError = function(msg) {
+Vue.prototype.msgError = function (msg) {
   this.$message({ showClose: true, message: msg, type: 'error' })
 }
 
-Vue.prototype.msgInfo = function(msg) {
+Vue.prototype.msgInfo = function (msg) {
   this.$message.info(msg)
 }
 

@@ -1,5 +1,7 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { login, getInfo, logout, getPermBtm } from "@/api/modules/login";
+import { registerMicroApps, start } from "qiankun"
+import microApps from './micro-app'
 const user = {
   state: {
     token: getToken(),
@@ -100,6 +102,42 @@ const user = {
           .catch(error => {
             reject(error)
           })
+      })
+    },
+    // 获取所有子应用微前端配置
+    GetMicroApp({ commit }) {
+      return new Promise((resolve, reject) => {
+        if (window.__POWERED_BY_QIANKUN__) {
+          __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
+        }
+        const apps = microApps.map(item => {
+          console.log('app---子应用', item)
+          return {
+            ...item
+          }
+        })
+        registerMicroApps(apps, {
+          beforeLoad: (app) => {
+            console.log('before load', app)
+            switch (app.name) {
+              case 'wocwin-vue2':
+                document.title = 'wocwin-vue2'
+                break
+              case 'wocwin-admin':
+                document.title = 'wocwin-admin'
+                break
+            }
+          },
+          beforeMount: [(app) => {
+            console.log('before mount', app.name)
+          }]
+        })
+        // 启动 qiankun
+        start({
+          prefetch: false // 取消预加载
+        })
+        resolve(apps)
+
       })
     },
     // 退出系统

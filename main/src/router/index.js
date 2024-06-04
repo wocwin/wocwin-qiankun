@@ -68,7 +68,7 @@ export const constantRoutes = [
 ]
 
 const router = new Router({
-  base: '/wocwin-qiankun/',
+  // base: '/wocwin-qiankun/',
   routes: constantRoutes,
   mode: 'history'
 })

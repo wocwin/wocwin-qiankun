@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     goIndex() {
-      window.location.href = '/wocwin-qiankun/'
+      window.location.href = '/'
     }
   }
 }

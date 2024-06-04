@@ -7,7 +7,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const productionGzipExtensions = ['js', 'css']
 // 这里只列一部分，具体配置参考文档
 module.exports = {
-  publicPath: '/wocwin-qiankun/',
+  publicPath: '/',
   outputDir: '../dist',
   lintOnSave: false,
   productionSourceMap: false,
@@ -85,7 +85,13 @@ module.exports = {
             '^/admin_api': ''
           }
         },
-
+        '^/v2api': {
+          target: 'https://mock.mengxuegu.com/mock/663f2f7737199f49537c350f/api-v2', // wocwin-v2开发环境
+          changeOrigin: true,
+          pathRewrite: {
+            '^/v2api': ''
+          }
+        },
       }
     },
     disableHostCheck: true
