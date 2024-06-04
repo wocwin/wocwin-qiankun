@@ -28,11 +28,11 @@ module.exports = {
     port: 9100,
     open: false,
     proxy: {
-      '^/api': {
+      '^/v2api': {
         target: process.env.VUE_APP_BASE_API, // 开发环境
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/v2api': ''
         }
       }
     },

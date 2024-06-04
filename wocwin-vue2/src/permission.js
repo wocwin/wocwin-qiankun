@@ -2,6 +2,7 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth'
 NProgress.configure({ showSpinner: false })
 
@@ -18,7 +19,7 @@ router.beforeEach((to, from, next) => {
 				const roles = res.roles
 				store.dispatch('GenerateRoutes', { roles }).then(accessRoutes => {
 					router.addRoutes(accessRoutes) // 动态添加可访问路由表
-					// console.log('我看看路由表', accessRoutes)
+					console.log('我看看路由表---全局路由守卫', accessRoutes)
 					next({ ...to, replace: true }) // hack方法 确保addRoutes已完成
 				})
 			}).catch(err => {
@@ -28,24 +29,33 @@ router.beforeEach((to, from, next) => {
 				})
 			})
 		} else {
+			let add_routes = store.getters.permission_sysMenu
 			//如果是微应用则延迟渲染避免与主应用拦截器冲突
 			if (!window.__POWERED_BY_QIANKUN__) {
 				// setTimeout(next, 100)
 				// 子应用单独运行，直接进入该系统
-				let add_routes = store.getters.permission_sysMenu
-				if (to.path === '/index') {
+				if (to.path === '/index' || to.path == '/') {
 					let lastChild = add_routes[0]?.children[0]
 					if (to.path === lastChild.path) return false
 					next(lastChild)
 					NProgress.done()
 				} else {
-					console.log('子项目的next')
+					console.log('子项目的next', to, add_routes)
 					next()
 					NProgress.done()
 				}
 			} else {
-				console.log('主项目的next', to, store.getters.permission_sysMenu)
-				next()
+				// console.log('主项目的next', to, store.getters.permission_sysMenu)
+				if (to.path === '/index' || to.path == '/') {
+					let lastChild = add_routes[0]?.children[0]
+					if (to.path === lastChild.path) return false
+					next(lastChild)
+					NProgress.done()
+				} else {
+					// console.log('主项目的===非/index的next', to, add_routes)
+					next()
+					NProgress.done()
+				}
 			}
 		}
 	} else {

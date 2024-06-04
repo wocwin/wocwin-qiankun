@@ -7,7 +7,7 @@ export default function (config) {
 	// 创建axios实例
 	const service = axios.create({
 		// axios中请求配置有baseURL选项，表示请求URL公共部分
-		baseURL: process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : '/api',
+		baseURL: process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : 'https://mock.mengxuegu.com/mock/663f2f7737199f49537c350f/api-v2',
 		// 超时 b
 		timeout: 50000
 	})
@@ -15,6 +15,7 @@ export default function (config) {
 	// request拦截器
 	service.interceptors.request.use(
 		config => {
+			// console.log('config---vue2子应用', config)
 			// Do something before request is sentconfig.headers['Content-Type'] = 'application/json';
 			getToken() && (config.headers['Authorization'] = getToken())
 			config.headers['Content-Type'] = config.headers['Content-Type'] || 'application/json'
