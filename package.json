@@ -11,6 +11,7 @@
     "start:main": "cd main && start cmd /k npm run serve",
     "start:vue2": "cd wocwin-vue2 && start cmd /k npm run serve",
     "start:vue3": "cd wocwin-admin && start cmd /k npm run serve",
+    "deploy": "deploy.sh",
     "build": "cd main && npm run prod",
     "build:all": "npm-run-all build:* ",
     "build:main": "cd main && npm run prod",
