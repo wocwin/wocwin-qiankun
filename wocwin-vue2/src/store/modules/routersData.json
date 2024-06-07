@@ -4,38 +4,1205 @@
 	"msg": "成功",
 	"data": [
 		{
-			"id": 581,
+			"id": 1106,
 			"name": "Layout",
 			"path": "/wocwin-vue2/",
 			"hidden": false,
 			"redirect": null,
 			"component": "Layout",
 			"alwaysShow": true,
-			"meta": { "title": "vue2常规模板", "icon": "chart" },
+			"meta": {
+				"title": "vue2常规模板",
+				"icon": "chart"
+			},
 			"visible": "0",
 			"menuType": "M",
 			"children": [
 				{
-					"id": 583,
-					"name": "Base",
-					"path": "TTable",
+					"id": 100946,
+					"name": "Layout",
+					"path": "/map",
 					"hidden": false,
 					"redirect": null,
-					"component": "demo/TTable/base",
+					"component": "Layout",
 					"alwaysShow": true,
-					"meta": { "title": "TTable组件", "icon": "#" },
+					"meta": {
+						"title": "高德地图",
+						"icon": "dict"
+					},
 					"visible": "0",
 					"menuType": "M",
 					"children": [
 						{
-							"id": 585,
+							"id": 100947,
+							"name": "Circle",
+							"path": "circle",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/map/circle",
+							"alwaysShow": null,
+							"meta": {
+								"title": "店面选址测算",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100948,
+							"name": "Circlemarker",
+							"path": "circlemarker",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/map/circlemarker",
+							"alwaysShow": null,
+							"meta": {
+								"title": "圆点标记",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100949,
+							"name": "Geocoding",
+							"path": "geocoding",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/map/geocoding",
+							"alwaysShow": null,
+							"meta": {
+								"title": "行政区选择",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100950,
+							"name": "MapControl",
+							"path": "mapControl",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/map/mapControl",
+							"alwaysShow": null,
+							"meta": {
+								"title": "地图控件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100951,
+							"name": "Map",
+							"path": "map",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/map",
+							"alwaysShow": null,
+							"meta": {
+								"title": "常规操作",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						}
+					],
+					"needCache": true,
+					"domainVisible": false
+				},
+				{
+					"id": 100952,
+					"name": "Layout",
+					"path": "complex",
+					"hidden": false,
+					"redirect": null,
+					"component": "Layout",
+					"alwaysShow": true,
+					"meta": {
+						"title": "组合案例",
+						"icon": "skill"
+					},
+					"visible": "0",
+					"menuType": "M",
+					"children": [
+						{
+							"id": 100953,
+							"name": "TAdaptivePage",
+							"path": "TAdaptivePage",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TAdaptivePage",
+							"alwaysShow": null,
+							"meta": {
+								"title": "页面一屏展示",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100954,
+							"name": "SingleEditCell",
+							"path": "singleEditCell",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/singleEditCell",
+							"alwaysShow": null,
+							"meta": {
+								"title": "单元格编辑",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						}
+					],
+					"needCache": true,
+					"domainVisible": false
+				},
+				{
+					"id": 100955,
+					"name": "Layout",
+					"path": "common",
+					"hidden": false,
+					"redirect": null,
+					"component": "Layout",
+					"alwaysShow": true,
+					"meta": {
+						"title": "常用组件",
+						"icon": "job"
+					},
+					"visible": "0",
+					"menuType": "M",
+					"children": [
+						{
+							"id": 100956,
+							"name": "TInput",
+							"path": "TInput",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TInput",
+							"alwaysShow": null,
+							"meta": {
+								"title": "Input 组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100957,
+							"name": "TButton",
+							"path": "TButton",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TButton",
+							"alwaysShow": null,
+							"meta": {
+								"title": "button组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100958,
+							"name": "TTimerBtn",
+							"path": "TTimerBtn",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTimerBtn",
+							"alwaysShow": null,
+							"meta": {
+								"title": "倒计时组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100959,
+							"name": "TDatePicker",
+							"path": "TDatePicker",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TDatePicker",
+							"alwaysShow": null,
+							"meta": {
+								"title": "日期组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100960,
+							"name": "TStepWizard",
+							"path": "TStepWizard",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TStepWizard",
+							"alwaysShow": null,
+							"meta": {
+								"title": "步骤组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100961,
+							"name": "TDialog",
+							"path": "TDialog",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TDialog",
+							"alwaysShow": null,
+							"meta": {
+								"title": "弹窗组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100962,
+							"name": "TDetail",
+							"path": "TDetail",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TDetail",
+							"alwaysShow": null,
+							"meta": {
+								"title": "详情组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100963,
+							"name": "TSelect",
+							"path": "TSelect",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TSelect",
+							"alwaysShow": null,
+							"meta": {
+								"title": "Select下拉组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100964,
+							"name": "Layout",
+							"path": "t-select-table",
+							"hidden": false,
+							"redirect": null,
+							"component": "Layout",
+							"alwaysShow": true,
+							"meta": {
+								"title": "Select下拉表格组件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "M",
+							"children": [
+								{
+									"id": 100965,
+									"name": "TSelectTable",
+									"path": "index",
+									"hidden": false,
+									"redirect": null,
+									"component": "demo/TSelectTable",
+									"alwaysShow": null,
+									"meta": {
+										"title": "单选",
+										"icon": "#"
+									},
+									"visible": "0",
+									"menuType": "C",
+									"children": null,
+									"needCache": true,
+									"domainVisible": false
+								},
+								{
+									"id": 100966,
+									"name": "Multiple",
+									"path": "multiple",
+									"hidden": false,
+									"redirect": null,
+									"component": "demo/TSelectTable/multiple",
+									"alwaysShow": null,
+									"meta": {
+										"title": "多选",
+										"icon": "#"
+									},
+									"visible": "0",
+									"menuType": "C",
+									"children": null,
+									"needCache": true,
+									"domainVisible": false
+								},
+								{
+									"id": 100967,
+									"name": "RadioPagination",
+									"path": "radioPagination",
+									"hidden": false,
+									"redirect": null,
+									"component": "demo/TSelectTable/radioPagination",
+									"alwaysShow": null,
+									"meta": {
+										"title": "单选分页",
+										"icon": "#"
+									},
+									"visible": "0",
+									"menuType": "C",
+									"children": null,
+									"needCache": true,
+									"domainVisible": false
+								},
+								{
+									"id": 100968,
+									"name": "ShowPagination",
+									"path": "MultiplePagination",
+									"hidden": false,
+									"redirect": null,
+									"component": "demo/TSelectTable/showPagination",
+									"alwaysShow": null,
+									"meta": {
+										"title": "多选分页",
+										"icon": "#"
+									},
+									"visible": "0",
+									"menuType": "C",
+									"children": null,
+									"needCache": true,
+									"domainVisible": false
+								}
+							],
+							"needCache": true,
+							"domainVisible": false
+						}
+					],
+					"needCache": true,
+					"domainVisible": false
+				},
+				{
+					"id": 100969,
+					"name": "Layout",
+					"path": "/t-form",
+					"hidden": false,
+					"redirect": null,
+					"component": "Layout",
+					"alwaysShow": true,
+					"meta": {
+						"title": "TForm组件",
+						"icon": "row"
+					},
+					"visible": "0",
+					"menuType": "M",
+					"children": [
+						{
+							"id": 100970,
+							"name": "TForm",
+							"path": "base",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm",
+							"alwaysShow": null,
+							"meta": {
+								"title": "基本使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100971,
+							"name": "LabelPosition",
+							"path": "labelPosition",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/labelPosition",
+							"alwaysShow": null,
+							"meta": {
+								"title": "对齐方式",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100972,
+							"name": "WidthSize",
+							"path": "widthSize",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/widthSize",
+							"alwaysShow": null,
+							"meta": {
+								"title": "每行展示多少项",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100973,
+							"name": "Rules",
+							"path": "rules",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/rules",
+							"alwaysShow": null,
+							"meta": {
+								"title": "校验规则",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100974,
+							"name": "EventHandle",
+							"path": "eventHandle",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/eventHandle",
+							"alwaysShow": null,
+							"meta": {
+								"title": "事件使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100975,
+							"name": "LabelRender",
+							"path": "labelRender",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/labelRender",
+							"alwaysShow": null,
+							"meta": {
+								"title": "label jsx渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100976,
+							"name": "SlotName",
+							"path": "slotName",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/slotName",
+							"alwaysShow": null,
+							"meta": {
+								"title": "插槽使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100977,
+							"name": "TextShow",
+							"path": "textShow",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/textShow",
+							"alwaysShow": null,
+							"meta": {
+								"title": "文本展示",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100978,
+							"name": "ComUse",
+							"path": "comUse",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/comUse",
+							"alwaysShow": null,
+							"meta": {
+								"title": "自定义组件使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100979,
+							"name": "Assignment",
+							"path": "assignment",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TForm/assignment",
+							"alwaysShow": null,
+							"meta": {
+								"title": "回显数据",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						}
+					],
+					"needCache": true,
+					"domainVisible": false
+				},
+				{
+					"id": 100980,
+					"name": "Layout",
+					"path": "/t-table",
+					"hidden": false,
+					"redirect": null,
+					"component": "Layout",
+					"alwaysShow": true,
+					"meta": {
+						"title": "TTable组件",
+						"icon": "table"
+					},
+					"visible": "0",
+					"menuType": "M",
+					"children": [
+						{
+							"id": 100981,
 							"name": "Base",
 							"path": "base",
 							"hidden": false,
 							"redirect": null,
 							"component": "demo/TTable/base",
 							"alwaysShow": null,
-							"meta": { "title": "常规操作", "icon": "#" },
+							"meta": {
+								"title": "基本使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100982,
+							"name": "Virtual",
+							"path": "virtual",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/virtual",
+							"alwaysShow": null,
+							"meta": {
+								"title": "虚拟列表",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100983,
+							"name": "Copy",
+							"path": "copy",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/copy",
+							"alwaysShow": null,
+							"meta": {
+								"title": "双击复制",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100984,
+							"name": "TextColor",
+							"path": "textColor",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/textColor",
+							"alwaysShow": null,
+							"meta": {
+								"title": "文字变色",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100985,
+							"name": "Sequence",
+							"path": "sequence",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/sequence",
+							"alwaysShow": null,
+							"meta": {
+								"title": "显示序列号",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100986,
+							"name": "Radio",
+							"path": "radio",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/radio",
+							"alwaysShow": null,
+							"meta": {
+								"title": "显示单选项",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100987,
+							"name": "Pagination",
+							"path": "pagination",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/pagination",
+							"alwaysShow": null,
+							"meta": {
+								"title": "分页功能",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100988,
+							"name": "NotSort",
+							"path": "notSort",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/notSort",
+							"alwaysShow": null,
+							"meta": {
+								"title": "指定行不排序",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100989,
+							"name": "MergedCell",
+							"path": "mergedCell",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/mergedCell",
+							"alwaysShow": null,
+							"meta": {
+								"title": "合并行",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100990,
+							"name": "HeaderGroup",
+							"path": "headerGroup",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/headerGroup",
+							"alwaysShow": null,
+							"meta": {
+								"title": "表头合并",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100991,
+							"name": "RenderCol",
+							"path": "renderCol",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/renderCol",
+							"alwaysShow": null,
+							"meta": {
+								"title": "render 渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100992,
+							"name": "SlotName",
+							"path": "slotName",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/slotName",
+							"alwaysShow": null,
+							"meta": {
+								"title": "插槽渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100993,
+							"name": "Filters",
+							"path": "filters",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/filters",
+							"alwaysShow": null,
+							"meta": {
+								"title": "字典过滤",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100994,
+							"name": "ObjRenderPorp",
+							"path": "objRenderPorp",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/objRenderPorp",
+							"alwaysShow": null,
+							"meta": {
+								"title": "对象渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100995,
+							"name": "RenderHeader",
+							"path": "renderHeader",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/renderHeader",
+							"alwaysShow": null,
+							"meta": {
+								"title": "自定义标题",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100996,
+							"name": "SingleEditKeyup",
+							"path": "singleEditKeyup",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/singleEditKeyup",
+							"alwaysShow": null,
+							"meta": {
+								"title": "编辑键盘事件",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100997,
+							"name": "SingleEditTable",
+							"path": "singleEditTable",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/singleEditTable",
+							"alwaysShow": null,
+							"meta": {
+								"title": "单元格编辑",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100998,
+							"name": "CellEditSave",
+							"path": "cellEditSave",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/cellEditSave",
+							"alwaysShow": null,
+							"meta": {
+								"title": "编辑保存",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 100999,
+							"name": "EditTable",
+							"path": "editTable",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/editTable",
+							"alwaysShow": null,
+							"meta": {
+								"title": "整行编辑",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101000,
+							"name": "Operation",
+							"path": "operation",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/operation",
+							"alwaysShow": null,
+							"meta": {
+								"title": "操作按钮",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101001,
+							"name": "CustomRender",
+							"path": "customRender",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/customRender",
+							"alwaysShow": null,
+							"meta": {
+								"title": "操作按钮自定义渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101002,
+							"name": "Tree",
+							"path": "tree",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/tree",
+							"alwaysShow": null,
+							"meta": {
+								"title": "Tree 结构",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101003,
+							"name": "ColumnSet",
+							"path": "columnSet",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TTable/columnSet",
+							"alwaysShow": null,
+							"meta": {
+								"title": "显示隐藏列",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						}
+					],
+					"needCache": true,
+					"domainVisible": false
+				},
+				{
+					"id": 101004,
+					"name": "Layout",
+					"path": "/t-query-condition",
+					"hidden": false,
+					"redirect": null,
+					"component": "Layout",
+					"alwaysShow": true,
+					"meta": {
+						"title": "条件查询组件",
+						"icon": "swagger"
+					},
+					"visible": "0",
+					"menuType": "M",
+					"children": [
+						{
+							"id": 101005,
+							"name": "TQueryCondition",
+							"path": "base",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition",
+							"alwaysShow": null,
+							"meta": {
+								"title": "基本使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101006,
+							"name": "Slot",
+							"path": "slot",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/slot",
+							"alwaysShow": null,
+							"meta": {
+								"title": "插槽使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101007,
+							"name": "LabelRender",
+							"path": "labelRender",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/labelRender",
+							"alwaysShow": null,
+							"meta": {
+								"title": "label tsx渲染",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101008,
+							"name": "DefaultVal",
+							"path": "defaultVal",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/defaultVal",
+							"alwaysShow": null,
+							"meta": {
+								"title": "默认值显示",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101009,
+							"name": "Linkage",
+							"path": "linkage",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/linkage",
+							"alwaysShow": null,
+							"meta": {
+								"title": "联动使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101010,
+							"name": "TSelectUse",
+							"path": "TSelectUse",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/TSelectUse",
+							"alwaysShow": null,
+							"meta": {
+								"title": "TSelect使用",
+								"icon": "#"
+							},
+							"visible": "0",
+							"menuType": "C",
+							"children": null,
+							"needCache": true,
+							"domainVisible": false
+						},
+						{
+							"id": 101011,
+							"name": "TDatePickerUse",
+							"path": "TDatePickerUse",
+							"hidden": false,
+							"redirect": null,
+							"component": "demo/TQueryCondition/TDatePickerUse",
+							"alwaysShow": null,
+							"meta": {
+								"title": "TDatePicker使用",
+								"icon": "#"
+							},
 							"visible": "0",
 							"menuType": "C",
 							"children": null,
@@ -47,7 +1214,7 @@
 					"domainVisible": false
 				}
 			],
-			"needCache": true,
+			"needCache": false,
 			"domainVisible": false
 		}
 	]
