@@ -98,8 +98,8 @@ export async function mount(props) {
 	console.log('应用每次进入都会调用 mount 方法，通常我们在这里触发应用的渲染方法', props)
 	props.onGlobalStateChange(state => {
 		console.log('子应用接收的参数', state)
-		if (state.menuId) {
-			store.commit('SET_MENU_ID', state.menuId)
+		if (state.publicPath) {
+			window.localStorage.setItem('mainJumpPublicPath', state.publicPath);
 		}
 	}, true)
 	render(props)

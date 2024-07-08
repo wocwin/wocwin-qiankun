@@ -46,7 +46,7 @@ const permission = {
       return new Promise(async (resolve) => {
         // 获取路由数据
         const routerRes = await getRouters()
-        console.log('routerRes', routerRes?.data)
+        // console.log('routerRes', routerRes?.data)
         rebuildRouter(routerRes?.data)
         const newRouter = filterAsyncRouter(routerRes.data && routerRes.data[0].children, 1)
         // console.log('走了嘛生成系统路由', newRouter)
@@ -109,6 +109,7 @@ function filterAsyncRouter(asyncRouterMap, hier, systemIndex, moduleIndex) {
       }
     } else {
       // 如果是菜单,则匹配是否是微前端子应用激活路径,是的话则用ViewBox代替避免报错
+      // console.log('route.component---666', route.component, route)
       route.component = loadView(route.component)
       const appList = sessionStorage.getItem('appList')
       if (appList) {
